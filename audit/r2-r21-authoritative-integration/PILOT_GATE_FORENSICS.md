@@ -1,6 +1,8 @@
 # Pilot Gate forensics
 
-Executed implementation: `pipeline/transcript_qc/authoritative_r21_segment_redecoder.py::compute_pilot_gate`.
+Authoritative current snapshot: `pipeline/transcript_qc/authoritative_r21_segment_redecoder.py::compute_pilot_gate`.
+
+`EXECUTED_PATH_CONFIRMED=true`; `EXECUTED_SOURCE_VERSION_HASH_BOUND=false`; `SOURCE_VERSION_AT_EXECUTION=UNPROVEN`.
 
 Observed behavior:
 

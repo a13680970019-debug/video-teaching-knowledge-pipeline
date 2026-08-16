@@ -1,4 +1,8 @@
+import sys
+import types
 from pathlib import Path
+
+import pytest
 
 from pipeline.asr import authoritative_r2_first_pass as first_pass
 from pipeline.transcript_qc import authoritative_r21_segment_redecoder as qc
@@ -23,6 +27,8 @@ def test_imports_and_entrypoint_markers():
     assert callable(first_pass.run_asr_pilot)
     assert callable(qc.run_second_pass)
     assert callable(qc.decide_consensus)
+    assert first_pass.FAIL_CLOSED is True
+    assert qc.FAIL_CLOSED is True
     assert "WhisperModel" in Path(first_pass.__file__).read_text(encoding="utf-8")
     assert "decode_audio" in Path(qc.__file__).read_text(encoding="utf-8")
 
@@ -103,3 +109,82 @@ def test_vtt_builder_preserves_cues_and_timestamps(tmp_path):
     assert target.read_text(encoding="utf-8").startswith("WEBVTT")
     assert [(x.start, x.end) for x in result] == [(x.start, x.end) for x in cues]
     assert [x.text for x in result] == ["new text", "[unclear]"]
+
+
+@pytest.mark.parametrize("entrypoint", [first_pass.main, qc.main])
+def test_default_cli_refuses_real_execution(entrypoint):
+    with pytest.raises(SystemExit) as exc:
+        entrypoint([])
+    assert exc.value.code != 0
+
+
+def test_execute_real_flag_required(tmp_path):
+    input_root = tmp_path / "input"
+    output_root = tmp_path / "output"
+    with pytest.raises(first_pass.ExecutionSafetyError, match="--execute-real"):
+        first_pass.configure_execution(input_root, output_root, False)
+    with pytest.raises(qc.ExecutionSafetyError, match="--execute-real"):
+        qc.configure_execution(input_root, output_root, False)
+
+
+@pytest.mark.parametrize("module", [first_pass, qc])
+def test_explicit_output_root_required(module, tmp_path):
+    with pytest.raises(SystemExit) as exc:
+        module.main(["--execute-real", "--input-root", str(tmp_path / "input")])
+    assert exc.value.code != 0
+
+
+@pytest.mark.parametrize("module", [first_pass, qc])
+def test_production_root_rejected(module, tmp_path):
+    with pytest.raises(module.ExecutionSafetyError, match="protected"):
+        module.configure_execution(tmp_path / "input", Path(r"D:\视频教学采集系统\safe-looking-output"), True)
+
+
+@pytest.mark.parametrize("module", [first_pass, qc])
+def test_knowledge_base_root_rejected(module, tmp_path):
+    with pytest.raises(module.ExecutionSafetyError, match="protected"):
+        module.configure_execution(tmp_path / "input", Path(r"D:\司法视频图像处理知识库\safe-looking-output"), True)
+
+
+@pytest.mark.parametrize("module", [first_pass, qc])
+def test_historical_r2_output_root_rejected(module, tmp_path):
+    with pytest.raises(module.ExecutionSafetyError, match="protected"):
+        module.configure_execution(
+            tmp_path / "input",
+            Path(r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-audio-grounded-20260807\new-output"),
+            True,
+        )
+
+
+@pytest.mark.parametrize("module", [first_pass, qc])
+def test_historical_r21_output_root_rejected(module, tmp_path):
+    with pytest.raises(module.ExecutionSafetyError, match="protected"):
+        module.configure_execution(
+            tmp_path / "input",
+            Path(r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-1-pilot-remediation-20260807\new-output"),
+            True,
+        )
+
+
+def test_safe_temp_root_allowed_with_mocked_model_boundary(tmp_path, monkeypatch):
+    input_root = tmp_path / "safe-input"
+    output_root = tmp_path / "safe-output"
+    input_root.mkdir()
+    first_pass.configure_execution(input_root, output_root, True)
+    first_pass.ensure_dirs()
+
+    class FakeWhisperModel:
+        instances = 0
+
+        def __init__(self, *args, **kwargs):
+            type(self).instances += 1
+
+    fake_faster_whisper = types.ModuleType("faster_whisper")
+    fake_faster_whisper.WhisperModel = FakeWhisperModel
+    monkeypatch.setitem(sys.modules, "faster_whisper", fake_faster_whisper)
+    assert first_pass.run_asr_pilot([]) == []
+    assert FakeWhisperModel.instances == 1
+    assert (output_root / "03_pilot_20" / "02_WORD_LEVEL_AUDIT_COMBINED.csv").exists()
+
+    second_output = tmp_path / "safe-second-pass-output"
+    assert qc.configure_execution(input_root, second_output, True)["fail_closed"] is True

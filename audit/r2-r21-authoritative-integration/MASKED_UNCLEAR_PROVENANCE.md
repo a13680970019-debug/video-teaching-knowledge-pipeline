@@ -2,7 +2,11 @@
 
 Source: `pipeline/transcript_qc/authoritative_r21_segment_redecoder.py::decide_consensus`
 
-Source SHA256: `333317ded1223099901559f511e0a3e5a6009da5ab18cb2c901bdaf37ddffd78`
+Provenance snapshot SHA256: `333317ded1223099901559f511e0a3e5a6009da5ab18cb2c901bdaf37ddffd78`
+
+Current migrated snapshot SHA256: `51e45a6ebf3aa99709cf78de825625b0c63b2da9636c754f89789226b6173bf4`
+
+`EXECUTED_PATH_CONFIRMED=true`; `EXECUTED_SOURCE_VERSION_HASH_BOUND=false`; `SOURCE_VERSION_AT_EXECUTION=UNPROVEN`.
 
 The R2.1 output audit recalculated 1,760 `MASKED_UNCLEAR` rows from 5,035 required rows. The implementation preserves the historical behavior: no aligned second-pass word or unresolved ambiguity produces `final_word` shaped as `[unclear]`. A 30-row real-ledger sample is retained in the read-only provenance audit package referenced by `docs/KNOWN_DEFECTS.md`.
 

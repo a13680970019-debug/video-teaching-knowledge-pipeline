@@ -19,10 +19,72 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-R2_ROOT_DEFAULT = Path(r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-audio-grounded-20260807")
-R21_ROOT_DEFAULT = Path(r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-1-pilot-remediation-20260807")
+HISTORICAL_R2_ROOT = Path(r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-audio-grounded-20260807")
+HISTORICAL_R21_ROOT = Path(r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-1-pilot-remediation-20260807")
 FFMPEG_DEFAULT = Path(r"D:\AI-Env\ffmpeg\bin\ffmpeg.exe")
 FFPROBE_DEFAULT = Path(r"D:\AI-Env\ffmpeg\bin\ffprobe.exe")
+
+EXECUTION_AUTHORIZED = False
+AUTHORIZED_INPUT_ROOT: Path | None = None
+AUTHORIZED_OUTPUT_ROOT: Path | None = None
+FAIL_CLOSED = True
+
+PROTECTED_WRITE_ROOTS = tuple(
+    Path(p)
+    for p in (
+        r"D:\视频教学采集系统",
+        r"D:\司法视频图像处理知识库",
+        r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-audio-grounded-20260807",
+        r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-1-pilot-remediation-20260807",
+    )
+)
+
+
+class ExecutionSafetyError(RuntimeError):
+    """Raised when the fail-closed runtime contract is not satisfied."""
+
+
+def _path_is_under(candidate: Path, parent: Path) -> bool:
+    candidate_text = os.path.normcase(os.path.abspath(str(candidate))).rstrip("\\/")
+    parent_text = os.path.normcase(os.path.abspath(str(parent))).rstrip("\\/")
+    return candidate_text == parent_text or candidate_text.startswith(parent_text + os.sep)
+
+
+def _assert_safe_output_root(output_root: Path) -> Path:
+    resolved = output_root.expanduser().resolve()
+    for protected in PROTECTED_WRITE_ROOTS:
+        if _path_is_under(resolved, protected):
+            raise ExecutionSafetyError(f"FAIL_CLOSED: output root is protected: {resolved}")
+    return resolved
+
+
+def configure_execution(input_root: Path, output_root: Path, execute_real: bool) -> dict[str, str | bool]:
+    """Require explicit authorization and bind both runtime roots."""
+    global EXECUTION_AUTHORIZED, AUTHORIZED_INPUT_ROOT, AUTHORIZED_OUTPUT_ROOT
+    if not execute_real:
+        raise ExecutionSafetyError("FAIL_CLOSED: --execute-real is required for real Second-Pass")
+    if input_root is None or output_root is None:
+        raise ExecutionSafetyError("FAIL_CLOSED: explicit --input-root and --output-root are required")
+    AUTHORIZED_INPUT_ROOT = Path(input_root).expanduser().resolve()
+    AUTHORIZED_OUTPUT_ROOT = _assert_safe_output_root(Path(output_root))
+    EXECUTION_AUTHORIZED = True
+    return {
+        "fail_closed": True,
+        "execute_real": True,
+        "input_root": str(AUTHORIZED_INPUT_ROOT),
+        "output_root": str(AUTHORIZED_OUTPUT_ROOT),
+    }
+
+
+def _require_runtime_config(input_root: Path, output_root: Path) -> None:
+    if not EXECUTION_AUTHORIZED or AUTHORIZED_INPUT_ROOT is None or AUTHORIZED_OUTPUT_ROOT is None:
+        raise ExecutionSafetyError(
+            "FAIL_CLOSED: configure_execution(--execute-real, --input-root, --output-root) is required"
+        )
+    if Path(input_root).expanduser().resolve() != AUTHORIZED_INPUT_ROOT:
+        raise ExecutionSafetyError("FAIL_CLOSED: runtime input root differs from explicitly authorized input root")
+    if _assert_safe_output_root(Path(output_root)) != AUTHORIZED_OUTPUT_ROOT:
+        raise ExecutionSafetyError("FAIL_CLOSED: runtime output root differs from explicitly authorized output root")
 
 TZ = timezone(timedelta(hours=8))
 SAMPLE_RATE = 16000
@@ -130,6 +192,10 @@ def now_iso() -> str:
 
 
 def ensure_dirs(root: Path) -> None:
+    if EXECUTION_AUTHORIZED and AUTHORIZED_OUTPUT_ROOT is not None:
+        _require_runtime_config(AUTHORIZED_INPUT_ROOT or root, root)
+    else:
+        raise ExecutionSafetyError("FAIL_CLOSED: explicit execution configuration is required before writing")
     for rel in [
         "00_control",
         "01_inputs_frozen",
@@ -658,6 +724,7 @@ def transcribe_clip(model: Any, audio_slice: Any, window_start: float, hotwords:
 
 
 def run_second_pass(r2: Path, root: Path, limit: int | None = None) -> dict[str, Any]:
+    _require_runtime_config(r2, root)
     os.environ.setdefault("HF_HUB_OFFLINE", "1")
     os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
     os.environ.setdefault("HF_HOME", r"C:\Users\1\.cache\huggingface")
@@ -1411,11 +1478,12 @@ def build_zip(root: Path) -> dict[str, Any]:
         f"# Archive Test Report\n\n- testzip: {meta['testzip']}\n- entries: {len(entries)}\n- sha256: {meta['archive_sha256']}\n- audio/video entries: {len(meta['audio_video_entries'])}\n- pycache/pyc entries: {len(meta['pycache_or_pyc_entries'])}\n",
         encoding="utf-8",
     )
-    write_reports(root, R2_ROOT_DEFAULT, meta)
+    write_reports(root, HISTORICAL_R2_ROOT, meta)
     return meta
 
 
 def finalise(root: Path, r2: Path, skip_p027: bool = False) -> dict[str, Any]:
+    _require_runtime_config(r2, root)
     copy_episode_inputs(r2, root, load_runtime(r2))
     build_consensus_and_vtts(r2, root)
     if not skip_p027:
@@ -1436,6 +1504,7 @@ def finalise(root: Path, r2: Path, skip_p027: bool = False) -> dict[str, Any]:
 
 
 def preflight(r2: Path, root: Path) -> dict[str, Any]:
+    _require_runtime_config(r2, root)
     ensure_dirs(root)
     task = freeze_inputs(r2, root)
     runtime = load_runtime(r2)
@@ -1461,21 +1530,24 @@ def preflight(r2: Path, root: Path) -> dict[str, Any]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="R2.1 local segment Second-Pass remediation pipeline")
-    parser.add_argument("--r2-root", type=Path, default=R2_ROOT_DEFAULT)
-    parser.add_argument("--out-root", type=Path, default=R21_ROOT_DEFAULT)
+    parser.add_argument("--execute-real", action="store_true", help="explicitly authorize real model execution")
+    parser.add_argument("--input-root", type=Path, required=True, help="explicit R2 input root")
+    parser.add_argument("--output-root", type=Path, required=True, help="explicit isolated R2.1 output root")
     parser.add_argument("--mode", choices=["preflight", "second-pass", "finalize", "all"], default="all")
     parser.add_argument("--limit-segments", type=int, default=None)
     parser.add_argument("--skip-p027", action="store_true")
     args = parser.parse_args(argv)
-    if not args.r2_root.exists():
-        raise SystemExit(f"R2 root missing: {args.r2_root}")
-    ensure_dirs(args.out_root)
+    configure_execution(args.input_root, args.output_root, args.execute_real)
+    if not args.input_root.exists():
+        raise SystemExit(f"input root missing: {args.input_root}")
+    _require_runtime_config(args.input_root, args.output_root)
+    ensure_dirs(args.output_root)
     if args.mode in {"preflight", "all"}:
-        print(json.dumps(preflight(args.r2_root, args.out_root)["stats"], ensure_ascii=False, indent=2), flush=True)
+        print(json.dumps(preflight(args.input_root, args.output_root)["stats"], ensure_ascii=False, indent=2), flush=True)
     if args.mode in {"second-pass", "all"}:
-        print(json.dumps(run_second_pass(args.r2_root, args.out_root, args.limit_segments), ensure_ascii=False, indent=2), flush=True)
+        print(json.dumps(run_second_pass(args.input_root, args.output_root, args.limit_segments), ensure_ascii=False, indent=2), flush=True)
     if args.mode in {"finalize", "all"}:
-        print(json.dumps(finalise(args.out_root, args.r2_root, skip_p027=args.skip_p027), ensure_ascii=False, indent=2), flush=True)
+        print(json.dumps(finalise(args.output_root, args.input_root, skip_p027=args.skip_p027), ensure_ascii=False, indent=2), flush=True)
     return 0
 
 

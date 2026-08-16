@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
@@ -14,7 +15,13 @@ from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-audio-grounded-20260807")
+HISTORICAL_R2_ROOT = Path(r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-audio-grounded-20260807")
+# The historical root is retained only as provenance metadata.  It is never a
+# default execution target in this repository.
+ROOT: Path | None = None
+INPUT_ROOT: Path | None = None
+EXECUTION_AUTHORIZED = False
+FAIL_CLOSED = True
 R1_ROOT = Path(r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-20260806")
 R1_MANIFEST = R1_ROOT / "00_control" / "01_TARGET_200_MANIFEST.csv"
 R1_REVIEW = Path(r"D:\UserData\Downloads\CHATGPT_ENGLISH_ASR_WORD_AUDIT_200_R1_INDEPENDENT_REVIEW.md")
@@ -26,6 +33,66 @@ KB_ROOT = Path(r"D:\司法视频图像处理知识库\12大数学体系_课程�
 KB_RAW_INGEST = KB_ROOT / "字幕_原始入库"
 FFMPEG = Path(r"D:\AI-Env\ffmpeg\bin\ffmpeg.exe")
 FFPROBE = Path(r"D:\AI-Env\ffmpeg\bin\ffprobe.exe")
+
+PROTECTED_WRITE_ROOTS = tuple(
+    Path(p)
+    for p in (
+        r"D:\视频教学采集系统",
+        r"D:\司法视频图像处理知识库",
+        r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-audio-grounded-20260807",
+        r"D:\AI-Agent-Workspaces\Codex\english-asr-word-audit-200-r2-1-pilot-remediation-20260807",
+    )
+)
+
+
+class ExecutionSafetyError(RuntimeError):
+    """Raised when the fail-closed runtime contract is not satisfied."""
+
+
+def _path_is_under(candidate: Path, parent: Path) -> bool:
+    candidate_text = os.path.normcase(os.path.abspath(str(candidate))).rstrip("\\/")
+    parent_text = os.path.normcase(os.path.abspath(str(parent))).rstrip("\\/")
+    return candidate_text == parent_text or candidate_text.startswith(parent_text + os.sep)
+
+
+def _assert_safe_output_root(output_root: Path) -> Path:
+    resolved = output_root.expanduser().resolve()
+    for protected in PROTECTED_WRITE_ROOTS:
+        if _path_is_under(resolved, protected):
+            raise ExecutionSafetyError(f"FAIL_CLOSED: output root is protected: {resolved}")
+    return resolved
+
+
+def configure_execution(input_root: Path, output_root: Path, execute_real: bool) -> dict[str, str | bool]:
+    """Require explicit authorization and inject all runtime paths."""
+    global ROOT, INPUT_ROOT, EXECUTION_AUTHORIZED
+    global R1_MANIFEST, R1_REVIEW, R2_INSTRUCTION, RECOVERY_QUEUE, PROD_AUDIO
+    if not execute_real:
+        raise ExecutionSafetyError("FAIL_CLOSED: --execute-real is required for real ASR")
+    if input_root is None or output_root is None:
+        raise ExecutionSafetyError("FAIL_CLOSED: explicit --input-root and --output-root are required")
+    INPUT_ROOT = Path(input_root).expanduser().resolve()
+    ROOT = _assert_safe_output_root(Path(output_root))
+    R1_MANIFEST = INPUT_ROOT / "00_control" / "01_TARGET_200_MANIFEST.csv"
+    R1_REVIEW = INPUT_ROOT / "CHATGPT_ENGLISH_ASR_WORD_AUDIT_200_R1_INDEPENDENT_REVIEW.md"
+    R2_INSTRUCTION = INPUT_ROOT / "CODEX_ENGLISH_ASR_WORD_AUDIT_200_R2_AUDIO_GROUNDED_INSTRUCTION.md"
+    RECOVERY_QUEUE = INPUT_ROOT / "01_reconciliation" / "04_ASR_ONLY_REQUIRED.csv"
+    PROD_AUDIO = INPUT_ROOT / "audio_target_batch" if (INPUT_ROOT / "audio_target_batch").exists() else INPUT_ROOT
+    EXECUTION_AUTHORIZED = True
+    return {
+        "fail_closed": True,
+        "execute_real": True,
+        "input_root": str(INPUT_ROOT),
+        "output_root": str(ROOT),
+    }
+
+
+def _require_real_execution() -> Path:
+    if not EXECUTION_AUTHORIZED or ROOT is None or INPUT_ROOT is None:
+        raise ExecutionSafetyError(
+            "FAIL_CLOSED: configure_execution(--execute-real, --input-root, --output-root) is required"
+        )
+    return ROOT
 
 TASK_ID = "CODEX-ENGLISH-ASR-WORD-AUDIT-200-R2-AUDIO-GROUNDED-20260807"
 MODEL_SIZE = os.environ.get("R2_ASR_MODEL", "large-v3")
@@ -81,6 +148,7 @@ def now_iso() -> str:
 
 
 def ensure_dirs() -> None:
+    _require_real_execution()
     for rel in [
         "00_control/copied_instructions", "01_identity", "02_terminology", "03_pilot_20",
         "04_canary_50", "05_production_130", "06_episode_outputs", "07_quality",
@@ -216,6 +284,7 @@ def make_candidate_from_audio(meta: dict, audio: Path) -> dict | None:
 
 
 def build_audio_grounded_manifest() -> tuple[list[dict], list[dict], dict]:
+    _require_real_execution()
     r1 = read_csv(R1_MANIFEST)
     base = [dict(r) for r in r1 if r.get("audio_path") and Path(r["audio_path"]).exists()]
     missing = [dict(r) for r in r1 if not (r.get("audio_path") and Path(r.get("audio_path", "")).exists())]
@@ -419,6 +488,7 @@ def segment_dicts(segments) -> list[dict]:
 
 
 def run_asr_pilot(pilot: list[dict]) -> list[dict]:
+    _require_real_execution()
     from faster_whisper import WhisperModel
 
     stage_log = ROOT / "00_control" / "07_STAGE_LEDGER.jsonl"
@@ -791,7 +861,13 @@ def write_reports(summary: dict, gate: dict, zero: dict) -> None:
     (ROOT / "08_handoff" / "HANDOFF_TO_CHATGPT.md").write_text("\n".join(handoff), encoding="utf-8")
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Fail-closed R2 First-Pass ASR pilot")
+    parser.add_argument("--execute-real", action="store_true", help="explicitly authorize real model execution")
+    parser.add_argument("--input-root", type=Path, required=True, help="explicit input root")
+    parser.add_argument("--output-root", type=Path, required=True, help="explicit isolated output root")
+    args = parser.parse_args(argv)
+    configure_execution(args.input_root, args.output_root, args.execute_real)
     os.environ.setdefault("HF_HUB_OFFLINE", "1")
     os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
     os.environ.setdefault("HF_HOME", r"C:\Users\1\.cache\huggingface")
