@@ -3,7 +3,7 @@
   "authoritative_snapshot_label": "AUTHORITATIVE_CURRENT_SNAPSHOT_OF_EXECUTED_ENTRYPOINT",
   "provenance_snapshot_path": "audit/r2-r21-authoritative-integration/provenance/authoritative_r21_segment_redecoder_executed_snapshot.py",
   "provenance_snapshot_sha256": "333317ded1223099901559f511e0a3e5a6009da5ab18cb2c901bdaf37ddffd78",
-  "migrated_current_snapshot_sha256": "51e45a6ebf3aa99709cf78de825625b0c63b2da9636c754f89789226b6173bf4",
+  "migrated_current_snapshot_sha256": "59d6a16615b0ee4297e10cc558e9488f7b41e64a2de6e40354545bb03cb58623",
   "execution_evidence": "E3_RUNTIME_DIRECT",
   "executed_path_confirmed": true,
   "executed_source_version_hash_bound": false,

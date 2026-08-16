@@ -26,7 +26,7 @@ The migrated files are named and classified as `AUTHORITATIVE_CURRENT_SNAPSHOT_O
 | Component | Historical entrypoint | Provenance snapshot SHA-256 | Current migrated SHA-256 | Allowed adaptation | Algorithm behavior |
 |---|---|---|---|---|---|
 | First pass ASR | `...run_r2_audio_grounded_pilot.py::run_asr_pilot` | `eff54f660ec7993a08b771f6f50f49b4330fb3c3c17c6184a76bbd142d46f468` | `0f345567a03f9348723e05eab8cf1c8a40931bbe3c504d65df4285bd6b0ce8e7` | CLI guard, explicit input/output injection | unchanged |
-| Second pass QC | `...segment_redecoder.py::run_second_pass` | `333317ded1223099901559f511e0a3e5a6009da5ab18cb2c901bdaf37ddffd78` | `51e45a6ebf3aa99709cf78de825625b0c63b2da9636c754f89789226b6173bf4` | CLI guard, explicit input/output injection | unchanged |
+| Second pass QC | `...segment_redecoder.py::run_second_pass` | `333317ded1223099901559f511e0a3e5a6009da5ab18cb2c901bdaf37ddffd78` | `59d6a16615b0ee4297e10cc558e9488f7b41e64a2de6e40354545bb03cb58623` | CLI guard, explicit input/output injection, report-root propagation | unchanged |
 
 `ALGORITHM_BEHAVIOR_CHANGES = 0`: ASR parameters, thresholds, consensus, repetition detection, `validate_episode`, and `compute_pilot_gate` were not changed. R21-001 remains present.
 
@@ -90,13 +90,13 @@ UNKNOWN_FILES = 0
 
 ## Tests
 
-The original 9 tests remain. New synthetic safety coverage verifies default CLI refusal, explicit `--execute-real`, explicit output root, production/KB/historical R2/historical R2.1 output rejection, and a safe temporary root with a mocked Whisper boundary.
+The original 9 tests remain. New synthetic safety coverage verifies default CLI refusal, explicit `--execute-real`, explicit output root, production/KB/historical R2/historical R2.1 output rejection, a safe temporary root with a mocked Whisper boundary, and custom input-root propagation through `finalise` → `build_zip` → `FINAL_REPORT.md`.
 
 ```text
 TEST_COMMAND_LOCAL_COMPILE = py -3.14 -m compileall -q pipeline tests
 TEST_COMMAND_LOCAL = py -3.14 -m pytest -q tests
-TESTS_COLLECTED = 23
-TESTS_PASSED = 23
+TESTS_COLLECTED = 24
+TESTS_PASSED = 24
 TESTS_FAILED = 0
 TESTS_SKIPPED = 0
 ```

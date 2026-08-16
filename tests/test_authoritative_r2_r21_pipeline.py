@@ -188,3 +188,45 @@ def test_safe_temp_root_allowed_with_mocked_model_boundary(tmp_path, monkeypatch
 
     second_output = tmp_path / "safe-second-pass-output"
     assert qc.configure_execution(input_root, second_output, True)["fail_closed"] is True
+
+
+def test_custom_input_root_propagates_through_finalise_and_build_zip(tmp_path, monkeypatch):
+    input_root = tmp_path / "custom-input-root"
+    output_root = tmp_path / "custom-output-root"
+    input_root.mkdir()
+    qc.configure_execution(input_root, output_root, True)
+    qc.ensure_dirs(output_root)
+
+    monkeypatch.setattr(qc, "load_runtime", lambda _r2: [])
+    monkeypatch.setattr(qc, "copy_episode_inputs", lambda _r2, _root, _runtime: None)
+    monkeypatch.setattr(qc, "build_consensus_and_vtts", lambda _r2, _root: {})
+    monkeypatch.setattr(qc, "build_history_16", lambda _root, _r2: [])
+    monkeypatch.setattr(qc, "run_p027_language_review", lambda _r2, _root: {})
+
+    def fake_snapshot(label, root, paths=qc.SAFETY_PATHS):
+        path = root / "07_zero_write" / f"{label}_SAFETY_SNAPSHOT.json"
+        qc.write_json(path, {"label": label, "synthetic": True})
+        return {"label": label, "synthetic": True}
+
+    def fake_compare(pre, post, root):
+        qc.write_json(
+            root / "07_zero_write" / "ZERO_WRITE_COMPARISON.json",
+            {"PRODUCTION_CHANGED_COUNT": 0, "STATE_WRITE_COUNT": 0, "SQLITE_WRITE_COUNT": 0},
+        )
+        return {}
+
+    def fake_gate(root, _r2):
+        gate = {"PILOT_20_PASSED": False}
+        qc.write_json(root / "04_quality" / "PILOT_GATE_RESULT.json", gate)
+        return gate
+
+    monkeypatch.setattr(qc, "create_snapshot", fake_snapshot)
+    monkeypatch.setattr(qc, "compare_snapshots", fake_compare)
+    monkeypatch.setattr(qc, "compute_pilot_gate", fake_gate)
+
+    result = qc.finalise(output_root, input_root, skip_p027=True)
+    report = (output_root / "08_handoff" / "FINAL_REPORT.md").read_text(encoding="utf-8")
+
+    assert result["archive"]["testzip"] == "OK"
+    assert str(input_root) in report
+    assert str(qc.HISTORICAL_R2_ROOT) not in report

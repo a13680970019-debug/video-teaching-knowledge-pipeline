@@ -1440,7 +1440,7 @@ def write_reports(root: Path, r2: Path, archive_meta: dict[str, Any] | None = No
     (root / "08_handoff" / "HANDOFF_TO_CHATGPT.md").write_text("\n".join(handoff), encoding="utf-8")
 
 
-def build_zip(root: Path) -> dict[str, Any]:
+def build_zip(root: Path, r2: Path) -> dict[str, Any]:
     build_content_manifest(root)
     zip_path = root / "09_review_package" / "CHATGPT_ENGLISH_ASR_R2_1_PILOT_REMEDIATION_REVIEW.zip"
     zip_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1478,7 +1478,7 @@ def build_zip(root: Path) -> dict[str, Any]:
         f"# Archive Test Report\n\n- testzip: {meta['testzip']}\n- entries: {len(entries)}\n- sha256: {meta['archive_sha256']}\n- audio/video entries: {len(meta['audio_video_entries'])}\n- pycache/pyc entries: {len(meta['pycache_or_pyc_entries'])}\n",
         encoding="utf-8",
     )
-    write_reports(root, HISTORICAL_R2_ROOT, meta)
+    write_reports(root, r2, meta)
     return meta
 
 
@@ -1498,7 +1498,7 @@ def finalise(root: Path, r2: Path, skip_p027: bool = False) -> dict[str, Any]:
     gate = compute_pilot_gate(root, r2)
     build_content_manifest(root)
     write_reports(root, r2)
-    archive_meta = build_zip(root)
+    archive_meta = build_zip(root, r2)
     append_jsonl(root / "00_control" / "STAGE_LEDGER.jsonl", {"stage": "FINALIZE", "at": now_iso(), "archive_sha256": archive_meta["archive_sha256"]})
     return {"gate": gate, "archive": archive_meta}
 
