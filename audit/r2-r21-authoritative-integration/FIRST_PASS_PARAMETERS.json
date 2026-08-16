@@ -1,0 +1,23 @@
+{
+  "entrypoint": "pipeline/asr/authoritative_r2_first_pass.py::run_asr_pilot",
+  "source_sha256": "eff54f660ec7993a08b771f6f50f49b4330fb3c3c17c6184a76bbd142d46f468",
+  "execution_evidence": "E3_RUNTIME_DIRECT",
+  "source_version_at_execution": "UNPROVEN: original command log has path but no source hash",
+  "model": "large-v3",
+  "device": "cuda",
+  "compute_type": "int8_float16",
+  "language": "per-episode route; observed English route in Pilot runtime rows",
+  "beam_size": 5,
+  "best_of": "NOT_FOUND",
+  "word_timestamps": true,
+  "vad_filter": true,
+  "vad_parameters": {"min_silence_duration_ms": 200},
+  "condition_on_previous_text": "NOT_FOUND",
+  "temperature": "NOT_FOUND",
+  "repetition_penalty": "NOT_FOUND",
+  "no_repeat_ngram_size": "NOT_FOUND",
+  "evidence_files": [
+    "D:\\AI-Agent-Workspaces\\Codex\\english-asr-word-audit-200-r2-audio-grounded-20260807\\00_control\\06_COMMAND_LOG.jsonl",
+    "D:\\AI-Agent-Workspaces\\Codex\\english-asr-word-audit-200-r2-audio-grounded-20260807\\raw_logs\\asr_runtime_log.jsonl"
+  ]
+}
