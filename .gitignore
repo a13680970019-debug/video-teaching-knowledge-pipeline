@@ -1,0 +1,83 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+tokens/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
+
+# Audio
+*.mp3
+*.wav
+*.flac
+*.m4a
+*.aac
+*.ogg
+*.wma
+
+# Video
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.webm
+*.ts
+*.m4v
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Runtime/cache
+runtime/
+cache/
+tmp/
+temp/
+logs/
+downloads/
+
+# Model files
+*.gguf
+*.bin
+*.safetensors
+*.onnx
+models/
+
+# Large generated transcript corpora
+generated_transcripts/
+raw_transcripts/
+review_packages/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
