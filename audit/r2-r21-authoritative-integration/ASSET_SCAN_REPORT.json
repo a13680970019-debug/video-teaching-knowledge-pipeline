@@ -1,0 +1,14 @@
+{
+  "scan_scope": "new integration files staged for the feature branch",
+  "forbidden_asset_extensions": [".mp3", ".wav", ".flac", ".m4a", ".aac", ".ogg", ".opus", ".wma", ".mp4", ".mkv", ".avi", ".mov", ".webm", ".ts", ".m4v", ".vtt", ".srt", ".db", ".sqlite", ".sqlite3", ".wal", ".shm", ".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz", ".zst", ".onnx", ".pt", ".pth", ".bin", ".safetensors", ".pem", ".key", ".p12", ".pfx"],
+  "audio_files": 0,
+  "video_files": 0,
+  "production_vtt_files": 0,
+  "database_files": 0,
+  "archive_files": 0,
+  "model_files": 0,
+  "secret_files": 0,
+  "files_over_10mb": 0,
+  "pyc_files": 0,
+  "status": "PASS"
+}

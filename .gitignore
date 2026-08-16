@@ -18,6 +18,9 @@ env/
 *.key
 *.p12
 *.pfx
+*.crt
+*.jks
+token.txt
 secrets/
 credentials/
 tokens/
@@ -28,6 +31,10 @@ tokens/
 *.sqlite3
 *.db-wal
 *.db-shm
+*.wal
+*.shm
+*.duckdb
+*.sql
 
 # Audio
 *.mp3
@@ -36,6 +43,7 @@ tokens/
 *.m4a
 *.aac
 *.ogg
+*.opus
 *.wma
 
 # Video
@@ -44,8 +52,9 @@ tokens/
 *.avi
 *.mov
 *.webm
-*.ts
 *.m4v
+*.m2ts
+*.mts
 
 # Archives
 *.zip
@@ -53,6 +62,9 @@ tokens/
 *.7z
 *.tar
 *.gz
+*.bz2
+*.xz
+*.zst
 
 # Runtime/cache
 runtime/
@@ -73,6 +85,15 @@ models/
 generated_transcripts/
 raw_transcripts/
 review_packages/
+*.vtt
+*.srt
+audit/runtime/
+audit/raw/
+audit/word_ledgers/
+audit/segment_ledgers/
+audit/audio_clips/
+audit/video_clips/
+runtime_outputs/
 
 # Windows
 Thumbs.db

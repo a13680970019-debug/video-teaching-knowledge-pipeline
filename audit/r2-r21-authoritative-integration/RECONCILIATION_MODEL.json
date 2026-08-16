@@ -1,0 +1,25 @@
+{
+  "source": "R2/R2.1 authoritative source provenance audit",
+  "total_word_rows": 49829,
+  "initial_high_risk_words": 8936,
+  "r2_resolved_high_risk_words": 3901,
+  "second_pass_required_words": 5035,
+  "non_initial_high_risk_words": 40893,
+  "auto_confirmed_first_pass": 44794,
+  "consensus_match": 1640,
+  "second_pass_higher_confidence": 1583,
+  "terminology_context_match": 52,
+  "masked_unclear": 1760,
+  "equations": {
+    "total_word_rows": "40893 + 8936 = 49829",
+    "initial_high_risk": "3901 + 5035 = 8936",
+    "second_pass_required": "1640 + 1583 + 52 + 1760 = 5035",
+    "auto_confirmed_first_pass": "40893 + 3901 = 44794"
+  },
+  "data_reconciliation_pass": true,
+  "evidence": [
+    "D:\\AI-Agent-Workspaces\\Codex\\english-asr-word-audit-200-r2-audio-grounded-20260807\\03_pilot_20\\02_WORD_LEVEL_AUDIT_COMBINED.csv",
+    "D:\\AI-Agent-Workspaces\\Codex\\english-asr-word-audit-200-r2-1-pilot-remediation-20260807\\04_quality\\WORD_CONSENSUS_AUDIT_COMBINED.csv",
+    "D:\\AI-Agent-Workspaces\\Codex\\r2-r21-authoritative-source-provenance-audit-20260816\\05_output_provenance\\HIGH_RISK_STATE_TRANSITION.csv"
+  ]
+}
