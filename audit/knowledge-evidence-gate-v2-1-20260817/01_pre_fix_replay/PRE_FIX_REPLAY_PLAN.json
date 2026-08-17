@@ -1,0 +1,16 @@
+{
+  "source_scripts": [
+    "D:\\AI-Agent-Workspaces\\GitHub\\video-teaching-knowledge-pipeline\\audit\\knowledge-evidence-gate-pilot-v2-20260817\\run_v2_audio.py",
+    "D:\\AI-Agent-Workspaces\\GitHub\\video-teaching-knowledge-pipeline\\audit\\knowledge-evidence-gate-pilot-v2-20260817\\build_gate_v2.py"
+  ],
+  "sandbox_scripts": [
+    "D:\\AI-Agent-Workspaces\\GitHub\\video-teaching-knowledge-pipeline\\audit\\knowledge-evidence-gate-v2-1-20260817\\01_pre_fix_replay\\run_v2_audio_current_snapshot.py",
+    "D:\\AI-Agent-Workspaces\\GitHub\\video-teaching-knowledge-pipeline\\audit\\knowledge-evidence-gate-v2-1-20260817\\01_pre_fix_replay\\build_gate_v2_current_snapshot.py"
+  ],
+  "algorithm_changes": 0,
+  "only_change": "OUT path redirected to V2.1/01_pre_fix_replay; original source remains untouched",
+  "fixed_sample_manifest": "D:\\AI-Agent-Workspaces\\GitHub\\video-teaching-knowledge-pipeline\\audit\\knowledge-evidence-gate-v2-1-20260817\\01_pre_fix_replay\\11_V2_SAMPLE_MANIFEST.csv",
+  "network_download_allowed": false,
+  "knowledge_reconstruction_count": 0,
+  "canary_execution_count": 0
+}

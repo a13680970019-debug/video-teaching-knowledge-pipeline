@@ -1,0 +1,7 @@
+﻿sample_id,episode_key,source_language,audio_text_language,cross_lingual,lexical_alignment_score,temporal_state,knowledge_acceptance,full_cue_transcript_rewrite,clean_control_harmful_change,reason
+V2C001,bilibili:BV1au6wBxEfH:P022,mixed,en,True,0.0172,TEMPORAL_VERIFIED,ACCEPTED_AUDIO_BOUND,False,False,noncritical audio-bound evidence accepted; original remains preserved
+V2C002,bilibili:BV1gU4y1A7Yo:P006,en,mixed,False,1.0,TEMPORAL_VERIFIED,ACCEPTED_AUDIO_BOUND,False,False,noncritical audio-bound evidence accepted; original remains preserved
+V2C003,bilibili:BV1zR4y1o7us:P034,en,en,False,1.0,TEMPORAL_VERIFIED,ACCEPTED_AUDIO_BOUND,False,False,noncritical audio-bound evidence accepted; original remains preserved
+V2C004,bilibili:BV1BW411n7gw:P014,mixed,mixed,False,1.0,TEMPORAL_VERIFIED,ACCEPTED_AUDIO_BOUND,False,False,noncritical audio-bound evidence accepted; original remains preserved
+V2C005,bilibili:BV1GB4y1v7sL:P105,mixed,mixed,False,0.6667,TEMPORAL_VERIFIED,ACCEPTED_AUDIO_BOUND,False,False,noncritical audio-bound evidence accepted; original remains preserved
+V2C006,bilibili:BV1g94y1Q76G:P001,mixed,mixed,False,1.0,TEMPORAL_VERIFIED,ACCEPTED_AUDIO_BOUND,False,False,noncritical audio-bound evidence accepted; original remains preserved

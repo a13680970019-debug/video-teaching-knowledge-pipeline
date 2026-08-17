@@ -1,0 +1,73 @@
+﻿method,sample_id,temporal_match,critical_signature_match,cross_language_behavior,false_accept,false_reject,runtime,dependency_cost,limitations
+LEGACY_LEXICAL_SIGNATURE,V2U001,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U001,TEMPORAL_VERIFIED,SIGNATURE_MATCH,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U001,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U002,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U002,TEMPORAL_VERIFIED,SIGNATURE_PARTIAL,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U002,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U003,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U003,TEMPORAL_VERIFIED,SIGNATURE_MISMATCH,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U003,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U004,LEGACY_NOT_SEPARATED,LEGACY_FALSE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U004,TEMPORAL_VERIFIED,SIGNATURE_UNKNOWN,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U004,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U005,LEGACY_NOT_SEPARATED,LEGACY_FALSE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U005,TEMPORAL_VERIFIED,SIGNATURE_PARTIAL,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U005,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U006,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U006,TEMPORAL_VERIFIED,SIGNATURE_NOT_APPLICABLE,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U006,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U007,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U007,TEMPORAL_VERIFIED,SIGNATURE_PARTIAL,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U007,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U008,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U008,TEMPORAL_VERIFIED,SIGNATURE_MATCH,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U008,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U009,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U009,TEMPORAL_VERIFIED,SIGNATURE_PARTIAL,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U009,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U010,LEGACY_NOT_SEPARATED,LEGACY_FALSE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U010,TEMPORAL_FAILED,SIGNATURE_UNKNOWN,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U010,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U011,LEGACY_NOT_SEPARATED,LEGACY_FALSE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U011,TEMPORAL_VERIFIED,SIGNATURE_MATCH,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U011,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U012,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U012,TEMPORAL_VERIFIED,SIGNATURE_NOT_APPLICABLE,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U012,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U013,LEGACY_NOT_SEPARATED,LEGACY_TRUE,LOW_LEXICAL_WAS_ENTANGLED_WITH_ACCEPTANCE,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U013,TEMPORAL_VERIFIED,SIGNATURE_PARTIAL,low lexical retained as diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U013,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U014,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U014,TEMPORAL_VERIFIED,SIGNATURE_NOT_APPLICABLE,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U014,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U015,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U015,TEMPORAL_VERIFIED,SIGNATURE_MISMATCH,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U015,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U016,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U016,TEMPORAL_VERIFIED,SIGNATURE_MATCH,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U016,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U017,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U017,TEMPORAL_VERIFIED,SIGNATURE_PARTIAL,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U017,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2U018,LEGACY_NOT_SEPARATED,LEGACY_TRUE,LOW_LEXICAL_WAS_ENTANGLED_WITH_ACCEPTANCE,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2U018,TEMPORAL_VERIFIED,SIGNATURE_MISMATCH,low lexical retained as diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2U018,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2C001,LEGACY_NOT_SEPARATED,LEGACY_TRUE,LOW_LEXICAL_WAS_ENTANGLED_WITH_ACCEPTANCE,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2C001,TEMPORAL_VERIFIED,SIGNATURE_NOT_APPLICABLE,low lexical retained as diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2C001,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2C002,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2C002,TEMPORAL_VERIFIED,SIGNATURE_NOT_APPLICABLE,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2C002,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2C003,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2C003,TEMPORAL_VERIFIED,SIGNATURE_NOT_APPLICABLE,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2C003,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2C004,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2C004,TEMPORAL_VERIFIED,SIGNATURE_NOT_APPLICABLE,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2C004,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2C005,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2C005,TEMPORAL_VERIFIED,SIGNATURE_NOT_APPLICABLE,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2C005,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim
+LEGACY_LEXICAL_SIGNATURE,V2C006,LEGACY_NOT_SEPARATED,LEGACY_TRUE,not applicable,not claimed,not claimed,observed in V2,existing,legacy score was a combined diagnostic/gate input
+TIMESTAMP_WINDOW_EVIDENCE,V2C006,TEMPORAL_VERIFIED,SIGNATURE_NOT_APPLICABLE,same-language diagnostic,not claimed,not claimed,offline replay,none,frozen V2 has no independent forced-alignment word lattice
+FORCED_ALIGNMENT_DIAGNOSTIC_NOT_RUN,V2C006,NOT_RUN,NOT_RUN,NOT_RUN,not claimed,not claimed,NOT_RUN,additional dependency,no dependency installed/used; no oracle claim

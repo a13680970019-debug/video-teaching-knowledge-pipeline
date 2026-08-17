@@ -1,0 +1,12 @@
+﻿sample_id,episode_key,status,reason,downstream_admitted
+V2U002,bilibili:BV1gU4y1A7Yo:P006,BLOCKED_CRITICAL,critical signature state is SIGNATURE_PARTIAL,False
+V2U003,bilibili:BV1zR4y1o7us:P035,BLOCKED_CRITICAL,critical signature state is SIGNATURE_MISMATCH,False
+V2U004,bilibili:BV1WfXaYME3Y:P019,BLOCKED_CRITICAL,critical signature state is SIGNATURE_UNKNOWN,False
+V2U005,bilibili:BV1cJqgYhEqX:P013,BLOCKED_CRITICAL,critical signature state is SIGNATURE_PARTIAL,False
+V2U007,bilibili:BV1au6wBxEfH:P041,BLOCKED_CRITICAL,critical signature state is SIGNATURE_PARTIAL,False
+V2U009,bilibili:BV1zR4y1o7us:P044,BLOCKED_CRITICAL,critical signature state is SIGNATURE_PARTIAL,False
+V2U010,bilibili:BV1V7411t7HL:P014,BLOCKED_CRITICAL,critical temporal alignment is not verified,False
+V2U013,bilibili:BV1au6wBxEfH:P028,BLOCKED_CRITICAL,critical signature state is SIGNATURE_PARTIAL,False
+V2U015,bilibili:BV1zR4y1o7us:P034,BLOCKED_CRITICAL,critical signature state is SIGNATURE_MISMATCH,False
+V2U017,bilibili:BV1gQ4y1E7iy:P065,BLOCKED_CRITICAL,critical signature state is SIGNATURE_PARTIAL,False
+V2U018,bilibili:BV1au6wBxEfH:P033,BLOCKED_CRITICAL,critical signature state is SIGNATURE_MISMATCH,False
