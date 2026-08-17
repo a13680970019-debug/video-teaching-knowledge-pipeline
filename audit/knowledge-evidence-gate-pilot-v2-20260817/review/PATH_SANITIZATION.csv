@@ -1,0 +1,12 @@
+original_path_sha256,normalized_relative_reference,path_class,source_note
+1f0ab8c2cd0e525129149218a5a4472aa49c532e731f28cd782ceda4b4646153,<V2_ROOT>,V2_ROOT,Original path is retained only as a one-way SHA-256 locator.
+d0646df3df1abdfcaa1ca4e416669dbd2abd8375442aeb978a2e582790a4a559,<V1_ROOT>,V1_ROOT,Original path is retained only as a one-way SHA-256 locator.
+e4deae8ab552357c103b54af63420172335a56a2a10d67c3112ba4bea10e4efc,<REPOSITORY_ROOT>,REPOSITORY_ROOT,Original path is retained only as a one-way SHA-256 locator.
+e5d891c856ff35cf37c848d31527d86cd21bfc6699ce0fc77504f14115813915,<KNOWLEDGE_SOURCE_ROOT>,KNOWLEDGE_SOURCE_ROOT,Original path is retained only as a one-way SHA-256 locator.
+5315acbe8d33c5c81b3cadc02f54084d8c356524d364638868e72301009b7d39,<KNOWLEDGE_BASE_ROOT>,KNOWLEDGE_BASE_ROOT,Original path is retained only as a one-way SHA-256 locator.
+8cda5a6b675a686dfabbb012141c34fa0647c8e1bf00f88f47e12a5ef07584ef,<PRODUCTION_ROOT>,PRODUCTION_ROOT,Original path is retained only as a one-way SHA-256 locator.
+ddbdfb99644e42262e477da3586694199521089a8441a49b9ea575118207699d,<CURRENT_COLLECTION_ROOT>,CURRENT_COLLECTION_ROOT,Original path is retained only as a one-way SHA-256 locator.
+10b613a0368bb00eece60da46160b90ff8b5b7302196e8c7d255684a13a927ce,<CODEX_WORKSPACE_ROOT>,CODEX_WORKSPACE_ROOT,Original path is retained only as a one-way SHA-256 locator.
+812d61aa459b6a5f59fdd2cd3e5813926e0dbf19027c7af13c644681bbf2ae72,<MODEL_CACHE_ROOT>,MODEL_CACHE_ROOT,Original path is retained only as a one-way SHA-256 locator.
+31864d4a1ec26263600cb2a1c7cc4808758b174a168f02f490b975825cf9d2c0,<CODEX_HOME>,CODEX_HOME,Original path is retained only as a one-way SHA-256 locator.
+c3fa2e2b208cac8ee1ae0946a3814bd23343f661a7a5b257d6c189bdee6a774c,<USER_HOME>,USER_HOME,Original path is retained only as a one-way SHA-256 locator.

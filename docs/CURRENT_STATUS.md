@@ -2,6 +2,17 @@
 
 ## Confirmed Current Status
 
+### Historical R2 epoch contract
+
+The historical totals are kept separate from current Gate V2 metrics:
+
+INITIAL_HIGH_RISK_WORDS = 8936
+R2_RESOLVED = 3901
+SECOND_PASS_REQUIRED_WORDS = 5035
+MASKED_UNCLEAR = 1760
+
+The value 5035 is the Second-Pass-required count, not the initial high-risk total. This is a governance/documentation correction only; it does not change ASR, consensus, threshold, repetition, validate_episode, or compute_pilot_gate behavior.
+
 ```text
 R2 real-audio First Pass = completed
 R2.1 Second-Pass segments = 2963 / 2963

@@ -1,0 +1,13 @@
+sequence,kind,command_or_action,result,write_boundary,timestamp_utc
+1,READ,V1 all-file snapshot and SHA256,VERIFIED_LOCAL,no source write,2026-08-17T13:31:54.647065+00:00
+2,READ,"D01 ledger, D03 counts, H02 manifest, I03 unresolved, K01/K02/K03, M01, J01/J02",VERIFIED_LOCAL,no source write,2026-08-17T13:31:54.647079+00:00
+3,READ,Current KB targeted MP3+VTT binding scan,VERIFIED_LOCAL:226 current-universe rows,no source write,2026-08-17T13:31:54.647082+00:00
+4,RUN,build_v2.py,PASS,V2 output only,2026-08-17T13:31:54.647086+00:00
+5,RUN,rebalance_sampling.py,"PASS:24 samples,18 uncertainty,6 controls",V2 output only,2026-08-17T13:31:54.647092+00:00
+6,RUN,"run_v2_audio.py with local cached large-v3, offline, CPU int8",PASS:24/24 AUDIO_RECOVERABLE,V2 clips only; no network,2026-08-17T13:31:54.647095+00:00
+7,RUN,build_gate_v2.py,PASS:metrics generated; gate FAIL by semantics,V2 output only,2026-08-17T13:31:54.647097+00:00
+8,READ,"gh API PR2, reviews, comment 5306233082, files, check-runs, main, protection, rulesets, CURRENT_STATUS",PASS:live state captured,GitHub read only,2026-08-17T13:31:54.647099+00:00
+9,WRITE,governance-only status branch commit/push,PASS:01774de; no PR; no merge; feature PR2 unchanged,GitHub branch only,2026-08-17T13:31:54.647102+00:00
+10,RUN,pytest -q tests,"PASS:13 passed,0 failed,0 skipped",V2 output only,2026-08-17T13:31:54.647104+00:00
+11,RUN,python -m compileall -q,PASS,V2 output only,2026-08-17T13:31:54.647106+00:00
+12,RUN,finalize_v2.py and ZIP packaging,PASS,V2 output only,2026-08-17T13:31:54.647108+00:00

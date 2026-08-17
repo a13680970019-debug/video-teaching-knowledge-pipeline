@@ -1,0 +1,259 @@
+{
+  "created_at_utc": "2026-08-17T12:57:35.482402+00:00",
+  "current_audio_pool_module_counts": {
+    "01_初等代数": 31,
+    "03_坐标系": 3,
+    "04_三角函数": 33,
+    "06_离散数学": 146,
+    "07_微积分": 11,
+    "09_卷积与信号系统": 2
+  },
+  "current_audio_pool_rows": 226,
+  "evidence_labels": [
+    "VERIFIED_LOCAL",
+    "CONFLICT",
+    "SUPERSEDED",
+    "INFERENCE",
+    "UNPROVEN",
+    "CROSS_VERIFIED",
+    "VERIFIED_EXTERNAL"
+  ],
+  "knowledge_source_root": "<KNOWLEDGE_SOURCE_ROOT>",
+  "notes": [
+    "Historical report values were re-read, not accepted as current facts.",
+    "V2 output is isolated; V1 was not modified.",
+    "Current audio pool is limited to existing local KB media bindings."
+  ],
+  "safety": {
+    "knowledge_base_write_count": 0,
+    "network_download_count": 0,
+    "production_write_count": 0,
+    "source_roots_read_only": true,
+    "sqlite_write_count": 0,
+    "state_write_count": 0,
+    "v1_write_count": 0,
+    "v7_write_count": 0
+  },
+  "stage_id": "KNOWLEDGE-EVIDENCE-GATE-PILOT-V2-20260817",
+  "v1_file_count_actual": 53,
+  "v1_file_count_claimed_by_task": 52,
+  "v1_immutable_status": "CONFLICT",
+  "v1_reverification": {
+    "ledger_rows": 3649,
+    "ledger_state_counts": {
+      "ASR_RUNNABLE_AUDIO": 535,
+      "LOCAL_MEDIA_EXCEPTION": 13,
+      "OTHER_EXPLICIT_LEGAL_STATE": 1,
+      "SOURCE_IRRECOVERABLE": 1,
+      "TRANSCRIPT_NEEDS_REMEDIATION": 2,
+      "TRANSCRIPT_USABLE": 3022,
+      "TRANSCRIPT_VERSION_CONFLICT": 75
+    },
+    "ledger_unique_keys": 3649,
+    "v1_gate_metrics": {
+      "clean_control_count": 12,
+      "critical_false_negative_count": 0,
+      "critical_material_change_count": 1869,
+      "engineering_canary_heuristic": true,
+      "extractor_critical_error_count": 0,
+      "historical_metrics_unchanged": true,
+      "pilot_sample_count": 32,
+      "source_binding_error_count": 0,
+      "text_only_correction_count": 0,
+      "uncertainty_sample_count": 20,
+      "unresolved_audio_case_count": 10
+    },
+    "v1_historical_contract": {
+      "INITIAL_HIGH_RISK_WORDS": 8936,
+      "MASKED_UNCLEAR": 1760,
+      "R2_RESOLVED": 3901,
+      "SECOND_PASS_REQUIRED_WORDS": 5035,
+      "TOTAL_WORD_ROWS": 49829
+    },
+    "v1_sample_rows": 32,
+    "v1_unresolved_rows": 10
+  },
+  "v1_root": "<V1_ROOT>",
+  "v2_root": "<V2_ROOT>",
+  "v2_sample_contract": {
+    "clean_control_count": 4,
+    "n_by_collection": {
+      "01_初等代数::【重置版｜附带讲义】Professor Leonard《初等代数》": 10,
+      "03_坐标系::解析几何": 1,
+      "04_三角函数::Trigonometric functions 三角函数|Algebra 代数|Math 数学|Khan Academy 可汗学院": 5,
+      "06_离散数学::【北京大学】离散数学（完整版共134集）": 1,
+      "06_离散数学::离散数学（全）-北京大学": 2,
+      "07_微积分::【工科数学分析（微积分)】哈尔滨工业大学 | 尤超": 1,
+      "07_微积分::我在B站上大学！浙大苏德矿老师【微积分】课程全169讲！学数学必看，看完保准你不再挂科了！！！": 1,
+      "07_微积分::高等数学-微积分 《数学分析B1》【中科大少年班精品课】  程艺教授（104讲）": 1
+    },
+    "n_by_knowledge_type": {
+      "CONDITION": 2,
+      "DEFINITION": 2,
+      "FORMULA": 7,
+      "NUMBER": 5,
+      "TERM": 2,
+      "TERM_OR_STATEMENT": 4
+    },
+    "n_by_language": {
+      "en": 14,
+      "mixed": 8
+    },
+    "n_by_module": {
+      "01_初等代数": 10,
+      "03_坐标系": 1,
+      "04_三角函数": 5,
+      "06_离散数学": 3,
+      "07_微积分": 3
+    },
+    "n_by_risk_type": {
+      "CLEAN_CONTROL": 4,
+      "CONDITION": 2,
+      "DEFINITION": 2,
+      "FORMULA": 7,
+      "NUMBER": 5,
+      "TERM": 2
+    },
+    "not_represented_modules": [
+      "02_平面解析几何",
+      "05_线性代数",
+      "08_概率统计",
+      "09_卷积与信号系统",
+      "10_傅里叶分析",
+      "11_优化理论",
+      "12_误差分析与不确定性"
+    ],
+    "represented_modules": [
+      "01_初等代数",
+      "03_坐标系",
+      "04_三角函数",
+      "06_离散数学",
+      "07_微积分"
+    ],
+    "sample_contract": "18 targeted uncertainty/critical cues plus up to 6 clean controls, across all modules with current local audio+VTT bindings; engineering representative sample, not full-corpus proof.",
+    "sample_total": 22,
+    "uncertainty_count": 18
+  },
+  "finalized_at_utc": "2026-08-17T13:31:54.636787+00:00",
+  "v2_sampling_final": {
+    "sample_total": 24,
+    "uncertainty_count": 18,
+    "clean_control_count": 6,
+    "n_by_module": {
+      "01_初等代数": 5,
+      "03_坐标系": 4,
+      "04_三角函数": 4,
+      "06_离散数学": 4,
+      "07_微积分": 4,
+      "09_卷积与信号系统": 3
+    },
+    "n_by_collection": {
+      "01_初等代数::【重置版｜附带讲义】Professor Leonard《初等代数》": 5,
+      "03_坐标系::解析几何": 4,
+      "04_三角函数::Trigonometric functions 三角函数|Algebra 代数|Math 数学|Khan Academy 可汗学院": 4,
+      "06_离散数学::【北京大学】离散数学（完整版共134集）": 1,
+      "07_微积分::【工科数学分析（微积分)】哈尔滨工业大学 | 尤超": 1,
+      "09_卷积与信号系统::2022浙江大学信号与系统（含配套课件和代码） - 胡浩基老师": 2,
+      "06_离散数学::离散数学（国家级）-北京大学": 1,
+      "07_微积分::我在B站上大学！浙大苏德矿老师【微积分】课程全169讲！学数学必看，看完保准你不再挂科了！！！": 2,
+      "09_卷积与信号系统::北京邮电大学（李巍海老师主讲）——郑君里编写的信号与系统": 1,
+      "06_离散数学::离散数学（全）-北京大学": 2,
+      "07_微积分::这可能是b站最全的【人工智能-数学基础】教程！129讲全！微积分、概率论、线性代数、机器学习数学基础": 1
+    },
+    "n_by_risk_type": {
+      "NUMBER": 12,
+      "MODULE_COVERAGE_UNKNOWN": 3,
+      "FORMULA": 2,
+      "TERM": 1,
+      "CLEAN_CONTROL": 6
+    },
+    "n_by_language": {
+      "en": 7,
+      "mixed": 17
+    },
+    "n_by_knowledge_type": {
+      "NUMBER": 12,
+      "TERM_OR_STATEMENT": 9,
+      "FORMULA": 2,
+      "TERM": 1
+    },
+    "represented_modules": [
+      "01_初等代数",
+      "03_坐标系",
+      "04_三角函数",
+      "06_离散数学",
+      "07_微积分",
+      "09_卷积与信号系统"
+    ],
+    "not_represented_modules": [],
+    "sample_contract": "18 targeted cues with round-robin module coverage (cap 4 per module), plus one control per represented module where local evidence exists; engineering sample, not full-corpus proof."
+  },
+  "v2_gate_metrics": {
+    "stage": "V2",
+    "sample_total": 24,
+    "uncertainty_sample_count": 18,
+    "clean_control_count": 6,
+    "critical_units_total": 15,
+    "critical_false_negative_count": 0,
+    "critical_false_negative_rate": 0.0,
+    "critical_knowledge_unresolved_count": 8,
+    "critical_knowledge_unresolved_rate": 0.5333333333333333,
+    "extractor_critical_error_count": 2,
+    "critical_source_binding_failure": 0,
+    "text_only_correction_accepted_count": 0,
+    "noncritical_unresolved_count": 1,
+    "raw_audio_unresolved_count": 0,
+    "raw_audio_unresolved_rate": 0.0,
+    "audio_accepted_count": 15,
+    "module_coverage_count": 6,
+    "all_available_audio_bound_modules_represented": true,
+    "engineering_heuristic": true,
+    "gate_semantics": "failure-based; no invented percentage threshold",
+    "hard_fail_conditions": {
+      "critical_false_negative_count": 0,
+      "extractor_critical_error_count": 2,
+      "critical_source_binding_failure": 0,
+      "text_only_correction_accepted_count": 0
+    },
+    "gate_decision": "FAIL",
+    "limited_scope_only": true,
+    "full_scale_authorized": false,
+    "decision_basis": "No critical item was silently accepted after conservative binding; unresolved critical items are explicitly blocked. Current local audio pool represents six modules only; this supports limited-scope canary at most."
+  },
+  "v2_audio_results": {
+    "rows": 27,
+    "status_counts": {
+      "ASR_OK": 27
+    },
+    "audio_state_counts": {
+      "AUDIO_RECOVERABLE": 27
+    }
+  },
+  "github_state_summary": {
+    "pr2_head": "ff471ca51477c4c99f6bc1bf58c6cc5862dbea1d",
+    "pr2_state": "open",
+    "ci_check_runs": 2,
+    "main_protected": false,
+    "protection_returncode": 1,
+    "rulesets_returncode": 1
+  },
+  "test_result": {
+    "command": "D:\\python\\python.exe -m pytest -q tests; python -m compileall -q .",
+    "tests_collected": 13,
+    "tests_passed": 13,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "compileall": "PASS",
+    "evidence": "local command result"
+  },
+  "final_booleans": {
+    "TASK_COMPLETED": true,
+    "KNOWLEDGE_EVIDENCE_GATE_V2": "FAIL",
+    "KNOWLEDGE_RECONSTRUCTION_CANARY_AUTHORIZED": false,
+    "LIMITED_SCOPE_CANARY_AUTHORIZED": false,
+    "DO_NOT_SCALE": true,
+    "PR2_MERGE_READY": false,
+    "PR2_MERGE_EXECUTED": false,
+    "GITHUB_GOVERNANCE_READY": false
+  }
+}

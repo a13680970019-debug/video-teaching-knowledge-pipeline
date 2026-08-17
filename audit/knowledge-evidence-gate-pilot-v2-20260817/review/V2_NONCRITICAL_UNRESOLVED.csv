@@ -1,0 +1,2 @@
+sample_id,episode_key,module,risk_type,audio_state,reason
+V2C001,bilibili:BV1au6wBxEfH:P022,01_初等代数,CLEAN_CONTROL,AUDIO_RECOVERABLE,audio not accepted; preserved original; no text-only correction
