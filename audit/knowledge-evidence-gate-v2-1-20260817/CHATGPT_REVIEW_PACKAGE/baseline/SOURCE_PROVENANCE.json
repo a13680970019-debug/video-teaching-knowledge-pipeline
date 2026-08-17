@@ -1,0 +1,69 @@
+{
+  "repo_path": "video-teaching-knowledge-pipeline",
+  "repo_path_hash": "e4deae8ab552357c103b54af63420172335a56a2a10d67c3112ba4bea10e4efc",
+  "current_git_sha": "ff471ca51477c4c99f6bc1bf58c6cc5862dbea1d",
+  "current_branch": "fix/gate-v2-1-controlled-remediation-20260817",
+  "worktree_status": "?? audit/gate-v2-publication-20260817/\n?? audit/knowledge-evidence-gate-pilot-20260817/\n?? audit/knowledge-evidence-gate-pilot-v2-20260817/\n?? audit/knowledge-evidence-gate-v2-1-20260817/",
+  "source_files": [
+    {
+      "source_path": "build_v2.py",
+      "source_path_hash": "e43ce4f76db51d1076553c3dfa1f03b37b7b213dc8fb304d2030498ed047f68a",
+      "snapshot_path": "build_v2.py",
+      "snapshot_path_hash": "40c9832488167d0b294335222ac7f770ef50e253a00f29e1c20f74ee8456f4d7",
+      "file_sha256": "9bff3d922b01be0aca48cb4cf7958937ad968fab8ff4261d5b0720a8225bd3ee",
+      "snapshot_sha256": "9bff3d922b01be0aca48cb4cf7958937ad968fab8ff4261d5b0720a8225bd3ee",
+      "role": "AUTHORITATIVE_CURRENT_SNAPSHOT_OF_V2_ENTRYPOINT_OR_TEST"
+    },
+    {
+      "source_path": "run_v2_audio.py",
+      "source_path_hash": "3e25c2e7c3f2f992cd8f9120b9cdddcbdaac97423eba0bf7ce3b434834da3749",
+      "snapshot_path": "run_v2_audio.py",
+      "snapshot_path_hash": "3c1d1ed461222134e6fedd3be8aed2f98a2c79c97c4848dadeb889d642854458",
+      "file_sha256": "dc03cf75e257a55b4e6cec10badbd1856027a6720cb196026317f23ade7c244e",
+      "snapshot_sha256": "dc03cf75e257a55b4e6cec10badbd1856027a6720cb196026317f23ade7c244e",
+      "role": "AUTHORITATIVE_CURRENT_SNAPSHOT_OF_V2_ENTRYPOINT_OR_TEST"
+    },
+    {
+      "source_path": "build_gate_v2.py",
+      "source_path_hash": "c02feb714ebef389f28b3069e031bfaedab66056b00ed8c393de202efe66b4a8",
+      "snapshot_path": "build_gate_v2.py",
+      "snapshot_path_hash": "f4f202b5da15cac3b43ae7c803102b92af65f87084256de94b5f374f12861ab3",
+      "file_sha256": "3db2957706bee44a980ee2cfd44efd9dfbbfa174fb73be97cc2f6b4b75156921",
+      "snapshot_sha256": "3db2957706bee44a980ee2cfd44efd9dfbbfa174fb73be97cc2f6b4b75156921",
+      "role": "AUTHORITATIVE_CURRENT_SNAPSHOT_OF_V2_ENTRYPOINT_OR_TEST"
+    },
+    {
+      "source_path": "finalize_v2.py",
+      "source_path_hash": "9eaea1e1a57c1cf4811a7bd0a0b63d01d5a5ae77a55c67434f363f1174c49dd7",
+      "snapshot_path": "finalize_v2.py",
+      "snapshot_path_hash": "f964e4260c7dbe55b2afd9f05627de78bddde12dfa7e3683ae525129d0135256",
+      "file_sha256": "34a43e9840212ac853f6e1ebb23917e753822c247b865be3f7be0eca801a868c",
+      "snapshot_sha256": "34a43e9840212ac853f6e1ebb23917e753822c247b865be3f7be0eca801a868c",
+      "role": "AUTHORITATIVE_CURRENT_SNAPSHOT_OF_V2_ENTRYPOINT_OR_TEST"
+    },
+    {
+      "source_path": "run_audio_review.py",
+      "source_path_hash": "3e7911e4cc38eaf4b0c5ed6a53ae2af9179ef62417984a82af168c43d0928187",
+      "snapshot_path": "run_audio_review.py",
+      "snapshot_path_hash": "92c51b2db87cf4ab6e893a83561c4fee5cf1f5be1ef0d4d5931eb806579f1400",
+      "file_sha256": "22d9b3ec1d59237ded0a67c743ad75467b8013e6aa8d16621520ab9192620470",
+      "snapshot_sha256": "22d9b3ec1d59237ded0a67c743ad75467b8013e6aa8d16621520ab9192620470",
+      "role": "AUTHORITATIVE_CURRENT_SNAPSHOT_OF_V2_ENTRYPOINT_OR_TEST"
+    },
+    {
+      "source_path": "test_v2.py",
+      "source_path_hash": "cb5cfe80b6e02197bc86337d946c7b20949f1a986114513d4535db9f0ae6ded3",
+      "snapshot_path": "test_v2.py",
+      "snapshot_path_hash": "5c502ed724212891770fb01fc2310aae697730ad10d3cc8382303706c92713b4",
+      "file_sha256": "908ac8660e3053415e1e8a18074a09c2d9d41842b5ae0cc6d455a6f527f276a0",
+      "snapshot_sha256": "908ac8660e3053415e1e8a18074a09c2d9d41842b5ae0cc6d455a6f527f276a0",
+      "role": "AUTHORITATIVE_CURRENT_SNAPSHOT_OF_V2_ENTRYPOINT_OR_TEST"
+    }
+  ],
+  "historical_v2_runtime_hash_bound": false,
+  "EXECUTED_SOURCE_VERSION": "UNPROVEN",
+  "source_version_label": "AUTHORITATIVE_CURRENT_SNAPSHOT",
+  "exact_historical_code_reproduced": false,
+  "reason": "V2 evidence contains outputs and command ledger but no runtime source hash binding; current V2 source files are preserved as a local snapshot.",
+  "pre_fix_replay_required": true
+}

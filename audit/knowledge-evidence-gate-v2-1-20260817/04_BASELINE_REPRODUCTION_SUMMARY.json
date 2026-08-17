@@ -1,0 +1,30 @@
+{
+  "published_v2_root": "D:\\AI-Agent-Workspaces\\GitHub\\video-teaching-knowledge-pipeline\\audit\\knowledge-evidence-gate-pilot-v2-20260817",
+  "pre_fix_replay_root": "D:\\AI-Agent-Workspaces\\GitHub\\video-teaching-knowledge-pipeline\\audit\\knowledge-evidence-gate-v2-1-20260817\\01_pre_fix_replay",
+  "sample_ids_published": 24,
+  "sample_ids_replay": 24,
+  "sample_identity_unchanged": true,
+  "fixed_sample_count": 24,
+  "fixed_sample_unique_count": 24,
+  "artifact_rows_compared": 9,
+  "difference_rows": 3,
+  "semantic_diff_count": 0,
+  "metric_diff_count": 0,
+  "data_drift_rows": 1,
+  "environment_drift_rows": 2,
+  "published_audio_rows": 27,
+  "published_audio_unique_fixed_ids": 24,
+  "published_audio_duplicate_rows": 3,
+  "published_audio_duplicate_ids": [
+    "V2C004",
+    "V2C005",
+    "V2C006"
+  ],
+  "baseline_reproduced_semantically": true,
+  "baseline_reproduced_byte_identical": false,
+  "baseline_reproduced": true,
+  "classification_if_diff": "CODE_DRIFT|DATA_DRIFT|ENVIRONMENT_DRIFT|UNKNOWN",
+  "replay_scope": "EXACT_FIXED_SAMPLE_SET_ONLY; no additional sample IDs; no full-scale rerun",
+  "provenance_caveat": "Published V2 execution-time source hash was not bound; this replay proves semantic reproduction of the current evidence under the frozen 24-sample manifest, not exact historical source-version identity.",
+  "duplicate_artifact_caveat": "Published V2 audio adjudication JSONL contains 3 extra duplicate rows for V2C004/V2C005/V2C006; canonical fixed-sample comparison uses first occurrence per fixed sample ID and records the anomaly as DATA_DRIFT."
+}

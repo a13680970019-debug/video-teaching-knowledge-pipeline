@@ -1,0 +1,6 @@
+﻿timestamp_utc,phase,command,status,network,production_write,audio_model_execution_count
+2026-08-17T15:49:36.593218+00:00,FREEZE,freeze V2 manifest and evidence artifacts,PASS,false,0,
+2026-08-17T15:49:36.593218+00:00,PRE_FIX_REPLAY,<LOCAL_PYTHON_RUNTIME> run_v2_audio_current_snapshot.py --fixed-manifest 24 samples,PASS,false,0,24
+2026-08-17T15:49:36.593218+00:00,PRE_FIX_REPLAY,build_gate_v2_current_snapshot.py,PASS,false,0,
+2026-08-17T15:49:36.593218+00:00,BASELINE_COMPARE,compare published V2 with fixed-sample pre-fix replay,PASS_SEMANTIC_REPRODUCTION_WITH_RECORDED_DRIFT,false,0,
+2026-08-17T15:49:36.593218+00:00,POST_FIX_REPLAY,python -m pipeline.run_knowledge_evidence_gate_v21 --input-root --freeze-root --output-root,CONDITIONAL_PASS,false,0,0

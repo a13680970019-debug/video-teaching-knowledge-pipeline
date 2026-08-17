@@ -1,0 +1,11 @@
+{
+  "start_time_local": "2026-08-17T23:15:15.3843318+08:00",
+  "pid": 21748,
+  "script": "D:\\AI-Agent-Workspaces\\GitHub\\video-teaching-knowledge-pipeline\\audit\\knowledge-evidence-gate-v2-1-20260817\\01_pre_fix_replay\\run_v2_audio_current_snapshot.py",
+  "python": "D:\\python\\python.exe",
+  "fixed_sample_count": 24,
+  "network_download_allowed": false,
+  "model_download_allowed": false,
+  "source_audio_write_allowed": false,
+  "output_root": "D:\\AI-Agent-Workspaces\\GitHub\\video-teaching-knowledge-pipeline\\audit\\knowledge-evidence-gate-v2-1-20260817\\01_pre_fix_replay"
+}

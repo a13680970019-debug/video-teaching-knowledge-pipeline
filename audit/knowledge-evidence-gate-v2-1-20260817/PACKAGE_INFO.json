@@ -1,0 +1,14 @@
+{
+  "zip_path": "D:\\AI-Agent-Workspaces\\GitHub\\video-teaching-knowledge-pipeline\\audit\\knowledge-evidence-gate-v2-1-20260817\\EVIDENCE_GATE_V21_FIXED_SAMPLE_REVIEW_PACKAGE.zip",
+  "zip_valid": true,
+  "crc_test": true,
+  "entry_count": 49,
+  "required_files_present": true,
+  "round_trip_extract": "PASS",
+  "secret_scan": "PASS",
+  "forbidden_media_entries": [],
+  "zip_sha256": "4b2c0a817ae6f15af7b3777ab93db4ec279a322681657f9201691707f39dd466",
+  "zip_size_bytes": 134093,
+  "manifest_self_hash_excluded": true,
+  "path_sanitization_absolute_hits_checked": true
+}

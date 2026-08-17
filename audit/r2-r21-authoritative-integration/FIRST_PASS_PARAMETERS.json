@@ -1,0 +1,29 @@
+{
+  "entrypoint": "pipeline/asr/authoritative_r2_first_pass.py::run_asr_pilot",
+  "authoritative_snapshot_label": "AUTHORITATIVE_CURRENT_SNAPSHOT_OF_EXECUTED_ENTRYPOINT",
+  "provenance_snapshot_path": "audit/r2-r21-authoritative-integration/provenance/authoritative_r2_first_pass_executed_snapshot.py",
+  "provenance_snapshot_sha256": "eff54f660ec7993a08b771f6f50f49b4330fb3c3c17c6184a76bbd142d46f468",
+  "migrated_current_snapshot_sha256": "0f345567a03f9348723e05eab8cf1c8a40931bbe3c504d65df4285bd6b0ce8e7",
+  "execution_evidence": "E3_RUNTIME_DIRECT",
+  "executed_path_confirmed": true,
+  "executed_source_version_hash_bound": false,
+  "source_version_at_execution": "UNPROVEN",
+  "fail_closed": true,
+  "execute_real_flag_required": true,
+  "explicit_input_root_required": true,
+  "explicit_output_root_required": true,
+  "protected_write_roots_enforced": true,
+  "model": "large-v3",
+  "device": "cuda",
+  "compute_type": "int8_float16",
+  "language": "per-episode route; observed English route in Pilot runtime rows",
+  "beam_size": 5,
+  "word_timestamps": true,
+  "vad_filter": true,
+  "vad_parameters": {"min_silence_duration_ms": 200},
+  "algorithm_behavior_changes": 0,
+  "evidence_files": [
+    "D:\\AI-Agent-Workspaces\\Codex\\english-asr-word-audit-200-r2-audio-grounded-20260807\\00_control\\06_COMMAND_LOG.jsonl",
+    "D:\\AI-Agent-Workspaces\\Codex\\english-asr-word-audit-200-r2-audio-grounded-20260807\\raw_logs\\asr_runtime_log.jsonl"
+  ]
+}
