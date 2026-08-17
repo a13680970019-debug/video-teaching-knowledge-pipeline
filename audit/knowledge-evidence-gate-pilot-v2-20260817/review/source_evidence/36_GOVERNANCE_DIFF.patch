@@ -1,0 +1,75 @@
+diff --git a/docs/CURRENT_STATUS.md b/docs/CURRENT_STATUS.md
+index 1cb4ba2..e8ac6e6 100644
+--- a/docs/CURRENT_STATUS.md
++++ b/docs/CURRENT_STATUS.md
+@@ -1,34 +1,47 @@
+ # Current Status
+
+-## Confirmed Current Status
++## Historical R2/R2.1 epoch — frozen contract
+
+-```text
+-R2 real-audio First Pass = completed
+-R2.1 Second-Pass segments = 2963 / 2963
++These values are historical evidence and are not interchangeable with current ledger counts:
+
+-Initial high-risk words = 5035
+-Consensus/resolved candidates = 3275
+-Masked unclear = 1760
++- TOTAL_WORD_ROWS = 49829
++- INITIAL_HIGH_RISK_WORDS = 8936
++- R2_RESOLVED = 3901
++- SECOND_PASS_REQUIRED_WORDS = 5035
++- MASKED_UNCLEAR = 1760
++- Historical identity: 3901 + 5035 = 8936
+
+-Canary 50 = NOT STARTED
+-Production 130 = NOT STARTED
+-```
++## Current evidence ledger epoch
+
+-## Next Required Work
++Re-read from the current local evidence package:
+
+-下一阶段不是重新运行First Pass。
++- TOTAL_EPISODES = 3649
++- TRANSCRIPT_USABLE = 3022
++- TRANSCRIPT_NEEDS_REMEDIATION = 2
++- TRANSCRIPT_VERSION_CONFLICT = 75
++- ASR_RUNNABLE_AUDIO = 535
++- VERIFIED_COMPLETED_ASR = 89
++- CURRENT_REMAINING_ASR = 446
+
+-当前需要：
+-对1760个Masked Unclear进行知识影响分类，识别真正影响：
++## Knowledge-evidence gate epoch
+
+-- 数学术语
+-- 数字
+-- 公式
+-- 定义
+-- 条件
+-- 结论
+-- 符号
++- V1 knowledge-evidence pilot = FAIL; its raw unresolved audio rate was diagnostic and its sample was not corpus-representative.
++- V2 pilot = FAIL in the isolated package audit/knowledge-evidence-gate-pilot-v2-20260817.
++- V2 sample = 24 local audio-bound samples: 18 targeted critical/uncertainty cues and 6 controls across the six modules with current local MP3+VTT bindings.
++- V2 critical false negatives = 0.
++- V2 extractor critical errors = 2; both were blocked rather than accepted.
++- V2 critical unresolved/blocked = 8.
++- V2 text-only corrections accepted = 0.
++- Full-scale knowledge reconstruction = NOT AUTHORIZED.
++- Canary 50 = NOT STARTED.
++- Production 130 = NOT STARTED.
++- PR #2 merge = NOT EXECUTED.
+
+-的Critical风险。
++## Governance note
++
++Main-branch protection and rulesets remain unavailable under the current private-repository plan; the live API returned the plan limitation response. A governance-only branch carries this status correction. It does not change PR #2, main, production files, State, SQLite, V7, or the knowledge base.
++
++## Next review
++
++ChatGPT and the user review the V2 gate failure, the two extractor critical errors, the eight blocked critical items, and the governance branch before any later canary decision.
+
+-本 bootstrap 任务不执行该分类。

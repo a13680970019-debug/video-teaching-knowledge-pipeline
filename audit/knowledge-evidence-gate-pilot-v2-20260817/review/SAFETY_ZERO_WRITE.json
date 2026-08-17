@@ -1,0 +1,16 @@
+{
+  "evidence_class": "AGENT_SELF_REPORTED_FROM_COMMAND_LEDGER",
+  "production_write_count": 0,
+  "state_write_count": 0,
+  "sqlite_write_count": 0,
+  "v7_write_count": 0,
+  "knowledge_base_write_count": 0,
+  "source_audio_write_count": 0,
+  "source_transcript_write_count": 0,
+  "network_download_count": 0,
+  "github_main_write_count": 0,
+  "github_pr2_merge_count": 0,
+  "github_force_push_count": 0,
+  "v1_modification_count": 0,
+  "note": "All stage-created files were written under the V2 isolated output root; this is not an OS-level filesystem audit."
+}

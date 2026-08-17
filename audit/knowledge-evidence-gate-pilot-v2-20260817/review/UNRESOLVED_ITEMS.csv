@@ -1,0 +1,24 @@
+item_class,item_id,episode_key,status,severity,reason,next_action
+V1_UNRESOLVED_AUDIO,U006,bilibili:BV1sSTi6cEKU:P009,AUDIO_UNRESOLVED,REVIEW_REQUIRED,CURRENT_AUDIO_SOURCE_MISSING,verified current audio binding and human audio review
+V1_UNRESOLVED_AUDIO,U007,bilibili:BV1sSTi6cEKU:P010,AUDIO_UNRESOLVED,REVIEW_REQUIRED,CURRENT_AUDIO_SOURCE_MISSING,verified current audio binding and human audio review
+V1_UNRESOLVED_AUDIO,U009,bilibili:BV1sSTi6cEKU:P014,AUDIO_UNRESOLVED,REVIEW_REQUIRED,CURRENT_AUDIO_SOURCE_MISSING,verified current audio binding and human audio review
+V1_UNRESOLVED_AUDIO,U010,bilibili:BV1sSTi6cEKU:P017,AUDIO_UNRESOLVED,REVIEW_REQUIRED,CURRENT_AUDIO_SOURCE_MISSING,verified current audio binding and human audio review
+V1_UNRESOLVED_AUDIO,U011,bilibili:BV1sSTi6cEKU:P018,AUDIO_UNRESOLVED,REVIEW_REQUIRED,CURRENT_AUDIO_SOURCE_MISSING,verified current audio binding and human audio review
+V1_UNRESOLVED_AUDIO,U012,bilibili:BV1sSTi6cEKU:P019,AUDIO_UNRESOLVED,REVIEW_REQUIRED,CURRENT_AUDIO_SOURCE_MISSING,verified current audio binding and human audio review
+V1_UNRESOLVED_AUDIO,U013,bilibili:BV1sSTi6cEKU:P021,AUDIO_UNRESOLVED,REVIEW_REQUIRED,CURRENT_AUDIO_SOURCE_MISSING,verified current audio binding and human audio review
+V1_UNRESOLVED_AUDIO,U015,bilibili:BV1sSTi6cEKU:P026,AUDIO_UNRESOLVED,REVIEW_REQUIRED,CURRENT_AUDIO_SOURCE_MISSING,verified current audio binding and human audio review
+V1_UNRESOLVED_AUDIO,U017,bilibili:BV1sSTi6cEKU:P029,AUDIO_UNRESOLVED,REVIEW_REQUIRED,CURRENT_AUDIO_SOURCE_MISSING,verified current audio binding and human audio review
+V1_UNRESOLVED_AUDIO,U020,bilibili:BV1sSTi6cEKU:P036,AUDIO_UNRESOLVED,REVIEW_REQUIRED,CURRENT_AUDIO_SOURCE_MISSING,verified current audio binding and human audio review
+V2_CRITICAL_BLOCKED,V2U002,bilibili:BV1gU4y1A7Yo:P006,BLOCKED_CRITICAL,CRITICAL,BLOCKED_EXTRACTOR_CRITICAL_ERROR,extractor remediation and repeat controlled gate
+V2_CRITICAL_BLOCKED,V2U004,bilibili:BV1WfXaYME3Y:P019,BLOCKED_CRITICAL,CRITICAL,AUDIO_UNRESOLVED_PRESERVE_A,extractor remediation and repeat controlled gate
+V2_CRITICAL_BLOCKED,V2U005,bilibili:BV1cJqgYhEqX:P013,BLOCKED_CRITICAL,CRITICAL,AUDIO_UNRESOLVED_PRESERVE_A,extractor remediation and repeat controlled gate
+V2_CRITICAL_BLOCKED,V2U010,bilibili:BV1V7411t7HL:P014,BLOCKED_CRITICAL,CRITICAL,AUDIO_UNRESOLVED_PRESERVE_A,extractor remediation and repeat controlled gate
+V2_CRITICAL_BLOCKED,V2U011,bilibili:BV1GB4y1v7sL:P105,BLOCKED_CRITICAL,CRITICAL,AUDIO_UNRESOLVED_PRESERVE_A,extractor remediation and repeat controlled gate
+V2_CRITICAL_BLOCKED,V2U013,bilibili:BV1au6wBxEfH:P028,BLOCKED_CRITICAL,CRITICAL,AUDIO_UNRESOLVED_PRESERVE_A,extractor remediation and repeat controlled gate
+V2_CRITICAL_BLOCKED,V2U016,bilibili:BV1BW411n7gw:P034,BLOCKED_CRITICAL,CRITICAL,BLOCKED_EXTRACTOR_CRITICAL_ERROR,extractor remediation and repeat controlled gate
+V2_CRITICAL_BLOCKED,V2U018,bilibili:BV1au6wBxEfH:P033,BLOCKED_CRITICAL,CRITICAL,AUDIO_UNRESOLVED_PRESERVE_A,extractor remediation and repeat controlled gate
+V2_EXTRACTOR_CRITICAL_ERROR,V2U002,bilibili:BV1gU4y1A7Yo:P006,FAIL_BLOCKER,CRITICAL,critical_type_mismatch:NUMBER->TERM_OR_STATEMENT,fix mixed-language/type extraction before canary
+V2_EXTRACTOR_CRITICAL_ERROR,V2U016,bilibili:BV1BW411n7gw:P034,FAIL_BLOCKER,CRITICAL,critical_type_mismatch:TERM->TERM_OR_STATEMENT,fix mixed-language/type extraction before canary
+V1_PACKAGE_CONFLICT,V1_FILE_COUNT,,CONFLICT,MEDIUM,actual V1 files=53; task summary expected 52,preserve conflict in future package manifest
+GITHUB_GOVERNANCE,MAIN_PROTECTION,,UNSUPPORTED_BY_CURRENT_PLAN,GOVERNANCE,branch protection and rulesets API returned private-plan limitation,user plan decision; no public conversion or upgrade performed
+PR2_REVIEW,5306233082,,OPEN_REVIEW_BLOCKER,GOVERNANCE,three technical findings remain in live PR comment,do not merge PR2

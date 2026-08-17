@@ -1,0 +1,42 @@
+{
+  "verification_type": "DERIVED_POST_EXECUTION_EVIDENCE_RECONCILIATION",
+  "authoritative_v2_output": "<V2_ROOT>",
+  "v2_execution_status": "VERIFIED_EXISTING_EXECUTION",
+  "v2_reexecuted": false,
+  "sample_manifest_rows": 24,
+  "sample_manifest_unique_ids": 24,
+  "ab_transcript_pair_rows": 24,
+  "ab_transcript_pair_unique_ids": 24,
+  "audio_adjudication_rows": 27,
+  "audio_adjudication_unique_ids": 24,
+  "audio_adjudication_duplicate_ids": [
+    "V2C004",
+    "V2C005",
+    "V2C006"
+  ],
+  "knowledge_a_rows": 24,
+  "knowledge_a_unique_ids": 24,
+  "knowledge_b_rows": 24,
+  "knowledge_b_unique_ids": 24,
+  "knowledge_diff_rows": 16,
+  "critical_false_negative_rows": 0,
+  "critical_unresolved_rows": 8,
+  "extractor_critical_error_rows": 2,
+  "noncritical_unresolved_rows": 1,
+  "gate_decision": "FAIL",
+  "acceptance_metrics_match": true,
+  "test_result": {
+    "command": "D:\\python\\python.exe -m pytest -q tests; python -m compileall -q .",
+    "tests_collected": 13,
+    "tests_passed": 13,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "compileall": "PASS",
+    "evidence": "local command result"
+  },
+  "notes": [
+    "The three duplicate audio IDs are preserved; they are not silently dropped.",
+    "The pre-final 22-row contract in the stage manifest is superseded by its finalized 24-row contract.",
+    "This file is derived after execution and is not an original Gate V2 output."
+  ]
+}

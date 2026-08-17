@@ -1,0 +1,12 @@
+{
+  "manifest_type": "EVIDENCE_MANIFEST",
+  "manifest_self_hash": "SELF_REFERENTIAL_MANIFEST",
+  "v2_root": "<V2_ROOT>",
+  "zip": "EVIDENCE_GATE_PILOT_V2_20260817.zip",
+  "zip_sha256": "95649398ee48bebbf885ece3501516bf00d52eb2b2907d9a7713b3aee93e73d7",
+  "zip_size_bytes": 12434546,
+  "zip_entry_count": 76,
+  "hash_manifest": "92_FILE_HASH_MANIFEST.csv",
+  "self_referential_policy": "The manifest and hash manifest are marked SELF_REFERENTIAL_MANIFEST and are not hashed as ordinary files.",
+  "manifest_location": "adjacent_to_zip_not_inside_zip"
+}

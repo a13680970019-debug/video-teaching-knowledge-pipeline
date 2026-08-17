@@ -1,0 +1,88 @@
+{
+  "current_universe_audio_bound_rows": 226,
+  "module_counts": {
+    "01_初等代数": 31,
+    "03_坐标系": 3,
+    "04_三角函数": 33,
+    "06_离散数学": 146,
+    "07_微积分": 11,
+    "09_卷积与信号系统": 2
+  },
+  "modules": [
+    {
+      "current_audio_bound_count": 31,
+      "module": "01_初等代数",
+      "reason": "",
+      "status": "REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 0,
+      "module": "02_平面解析几何",
+      "reason": "No current KB MP3+same-directory VTT binding found in targeted local evidence",
+      "status": "MODULE_NOT_REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 3,
+      "module": "03_坐标系",
+      "reason": "",
+      "status": "REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 33,
+      "module": "04_三角函数",
+      "reason": "",
+      "status": "REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 0,
+      "module": "05_线性代数",
+      "reason": "No current KB MP3+same-directory VTT binding found in targeted local evidence",
+      "status": "MODULE_NOT_REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 146,
+      "module": "06_离散数学",
+      "reason": "",
+      "status": "REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 11,
+      "module": "07_微积分",
+      "reason": "",
+      "status": "REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 0,
+      "module": "08_概率统计",
+      "reason": "No current KB MP3+same-directory VTT binding found in targeted local evidence",
+      "status": "MODULE_NOT_REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 2,
+      "module": "09_卷积与信号系统",
+      "reason": "",
+      "status": "REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 0,
+      "module": "10_傅里叶分析",
+      "reason": "No current KB MP3+same-directory VTT binding found in targeted local evidence",
+      "status": "MODULE_NOT_REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 0,
+      "module": "11_优化理论",
+      "reason": "No current KB MP3+same-directory VTT binding found in targeted local evidence",
+      "status": "MODULE_NOT_REPRESENTED"
+    },
+    {
+      "current_audio_bound_count": 0,
+      "module": "12_误差分析与不确定性",
+      "reason": "No current KB MP3+same-directory VTT binding found in targeted local evidence",
+      "status": "MODULE_NOT_REPRESENTED"
+    }
+  ],
+  "mp3_files_matching_pattern": 690,
+  "scan_root": "<KNOWLEDGE_SOURCE_ROOT>\\字幕_转写",
+  "verified_local_note": "Pool is limited to current local MP3 plus same-directory VTT bindings; it is not the full corpus."
+}

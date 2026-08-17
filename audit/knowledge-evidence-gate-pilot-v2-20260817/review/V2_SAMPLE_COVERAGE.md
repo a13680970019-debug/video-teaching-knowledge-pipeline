@@ -1,0 +1,57 @@
+# V2 Sampling Coverage
+
+{
+  "sample_total": 24,
+  "uncertainty_count": 18,
+  "clean_control_count": 6,
+  "n_by_module": {
+    "01_初等代数": 5,
+    "03_坐标系": 4,
+    "04_三角函数": 4,
+    "06_离散数学": 4,
+    "07_微积分": 4,
+    "09_卷积与信号系统": 3
+  },
+  "n_by_collection": {
+    "01_初等代数::【重置版｜附带讲义】Professor Leonard《初等代数》": 5,
+    "03_坐标系::解析几何": 4,
+    "04_三角函数::Trigonometric functions 三角函数|Algebra 代数|Math 数学|Khan Academy 可汗学院": 4,
+    "06_离散数学::【北京大学】离散数学（完整版共134集）": 1,
+    "07_微积分::【工科数学分析（微积分)】哈尔滨工业大学 | 尤超": 1,
+    "09_卷积与信号系统::2022浙江大学信号与系统（含配套课件和代码） - 胡浩基老师": 2,
+    "06_离散数学::离散数学（国家级）-北京大学": 1,
+    "07_微积分::我在B站上大学！浙大苏德矿老师【微积分】课程全169讲！学数学必看，看完保准你不再挂科了！！！": 2,
+    "09_卷积与信号系统::北京邮电大学（李巍海老师主讲）——郑君里编写的信号与系统": 1,
+    "06_离散数学::离散数学（全）-北京大学": 2,
+    "07_微积分::这可能是b站最全的【人工智能-数学基础】教程！129讲全！微积分、概率论、线性代数、机器学习数学基础": 1
+  },
+  "n_by_risk_type": {
+    "NUMBER": 12,
+    "MODULE_COVERAGE_UNKNOWN": 3,
+    "FORMULA": 2,
+    "TERM": 1,
+    "CLEAN_CONTROL": 6
+  },
+  "n_by_language": {
+    "en": 7,
+    "mixed": 17
+  },
+  "n_by_knowledge_type": {
+    "NUMBER": 12,
+    "TERM_OR_STATEMENT": 9,
+    "FORMULA": 2,
+    "TERM": 1
+  },
+  "represented_modules": [
+    "01_初等代数",
+    "03_坐标系",
+    "04_三角函数",
+    "06_离散数学",
+    "07_微积分",
+    "09_卷积与信号系统"
+  ],
+  "not_represented_modules": [],
+  "sample_contract": "18 targeted cues with round-robin module coverage (cap 4 per module), plus one control per represented module where local evidence exists; engineering sample, not full-corpus proof."
+}
+
+All six modules with current MP3+VTT bindings are represented; this is not full-corpus proof.
