@@ -7,3 +7,7 @@ The audio adjudication JSONL contains 27 rows for 24 unique IDs. V2C004, V2C005,
 The stage manifest also contains an earlier pre-final V2 sample contract of 22 rows, 4 controls, and 5 modules, followed by the finalized contract of 24 rows, 6 controls, and 6 modules. The finalized block is the authoritative current contract; the earlier block is retained as superseded history and is not silently overwritten.
 
 The source package metadata is named V2_SOURCE_PACKAGE_INFO.json in this review copy. Its statement that binary audio clips were included applies to the original V2 ZIP, not to this text-only ChatGPT review package.
+
+The original package metadata retains placeholder fields for package_sha256 and zip_entry_count. The actual original V2 ZIP was independently opened and CRC-tested during publication: 76 entries, SHA-256 95649398ee48bebbf885ece3501516bf00d52eb2b2907d9a7713b3aee93e73d7. The original V2 hash manifest records the self-referential manifest policy.
+
+The command ledger is retained as evidence but is not treated as a complete process stdout log. Source-span hashes that refer to media outside the review package are preserved as declarations; this package does not recompute source media bytes.
