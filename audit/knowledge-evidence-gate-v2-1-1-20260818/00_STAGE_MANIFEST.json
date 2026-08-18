@@ -24,6 +24,16 @@
   "temporal_conflict_count": 1,
   "full_measurement_integrity": false,
   "package_manifest_self_hash_excluded": true,
+  "clean_branch_created": true,
+  "clean_branch": "fix/gate-v2-1-1-measurement-integrity-20260818",
+  "clean_head_sha": "d0678d2a75a15540966b6233a52ff2850d68dd3a",
+  "clean_pr_number": 5,
+  "clean_pr_url": "https://github.com/a13680970019-debug/video-teaching-knowledge-pipeline/pull/5",
+  "pr2_commits_present_in_clean_branch": false,
+  "pr2_files_present_in_clean_branch": false,
+  "ci_status": "SUCCESS",
+  "ci_run_id": 32091088981,
+  "destack_verified": true,
   "path_sanitized_for_publication": true
 }
 
