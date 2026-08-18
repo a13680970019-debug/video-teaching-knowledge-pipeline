@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "clean_branch_created": true,
+  "clean_branch": "fix/gate-v2-1-1-measurement-integrity-20260818",
+  "base": "main",
+  "main_sha_before_publication": "5dfac409c9cc8b7a7856a7df90259ddb09908c82",
+  "new_head_sha": "d0678d2a75a15540966b6233a52ff2850d68dd3a",
+  "merge_base": "5dfac409c9cc8b7a7856a7df90259ddb09908c82",
+  "ahead_by": 2,
+  "pr2_head_sha": "ff471ca51477c4c99f6bc1bf58c6cc5862dbea1d",
+  "pr2_commits_present": false,
+  "pr2_files_present": false,
+  "destack_verified": true,
+  "pr4_preserved": true,
+  "pr4_action": "LEAVE_OPEN_UNMERGED_PENDING_USER_APPROVAL",
+  "clean_pr_number": 5,
+  "clean_pr_url": "https://github.com/a13680970019-debug/video-teaching-knowledge-pipeline/pull/5",
+  "ci_status": "SUCCESS",
+  "ci_run_id": 32091088981
+}
+

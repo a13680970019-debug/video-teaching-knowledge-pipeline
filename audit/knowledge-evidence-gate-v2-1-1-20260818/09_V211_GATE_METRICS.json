@@ -1,0 +1,82 @@
+{
+  "stage": "V2.1.1",
+  "pipeline_gate_v21_result": "CONDITIONAL_PASS",
+  "independent_gate_decision": "NOT_EVALUABLE",
+  "fixed_sample_count": 24,
+  "unique_sample_count": 24,
+  "critical_units_total": 15,
+  "blocked_critical_count": 11,
+  "metrics": {
+    "critical_false_negative": {
+      "value": null,
+      "denominator": 15,
+      "measurement_status": "NOT_MEASURED",
+      "reference_source": "No independent human/objective critical mismatch gold in frozen evidence",
+      "independent_of_system_under_test": false,
+      "derivation": "Requires reference-positive mismatch labels compared with accepted system output.",
+      "limitations": "System output, signature, and ASR transcript are not gold."
+    },
+    "wrongly_accepted_critical": {
+      "value": null,
+      "denominator": 15,
+      "measurement_status": "NOT_MEASURED",
+      "reference_source": "No independent human/objective critical truth in frozen evidence",
+      "independent_of_system_under_test": false,
+      "derivation": "Requires accepted output versus independently adjudicated critical truth.",
+      "limitations": "A signature match is system evidence, not reference truth."
+    },
+    "extractor_critical_error": {
+      "value": null,
+      "denominator": 15,
+      "measurement_status": "NOT_MEASURED",
+      "reference_source": "No reviewed/reference knowledge type labels in frozen evidence",
+      "independent_of_system_under_test": false,
+      "derivation": "Internal extractor state is retained as diagnostic only; no independent type truth exists.",
+      "limitations": "The V2.1 inferred taxonomy cannot validate itself."
+    },
+    "critical_source_binding_failure": {
+      "value": 0,
+      "denominator": 15,
+      "measurement_status": "VERIFIED",
+      "reference_source": "Cross-record identity plus recomputed AUDIO/VTT/CLIP bytes",
+      "independent_of_system_under_test": true,
+      "derivation": "Count critical rows with cross-record conflicts/missing fields or non-verified required bytes.",
+      "limitations": "Duplicate historical rows are canonicalized and reported separately."
+    },
+    "text_only_correction_accepted": {
+      "value": 0,
+      "denominator": 24,
+      "measurement_status": "VERIFIED",
+      "reference_source": "A/B claim comparison plus cross-record and recomputed audio/clip evidence",
+      "independent_of_system_under_test": true,
+      "derivation": "Count accepted claim changes lacking independently verified audio/clip bytes.",
+      "limitations": "This does not establish semantic correctness of the changed claim."
+    },
+    "clean_control_harmful_change": {
+      "value": null,
+      "denominator": 6,
+      "measurement_status": "NOT_MEASURED",
+      "reference_source": "Independent semantic/human reference required for changed clean-control claims",
+      "independent_of_system_under_test": false,
+      "derivation": "A changed clean-control claim is observable; harmfulness needs independent reference truth.",
+      "limitations": "All changed clean controls remain unresolved for semantic harmfulness."
+    }
+  },
+  "reference_gold_status": "INSUFFICIENT",
+  "reference_gold_verified_count": 0,
+  "reference_gold_unknown_count": 15,
+  "human_gold_required": true,
+  "temporal_counts": {
+    "WINDOW_ONLY": 14,
+    "TEMPORAL_CONFLICT": 1
+  },
+  "full_measurement_integrity": false,
+  "limited_canary_eligible": false,
+  "knowledge_canary_authorized": false,
+  "full_scale_authorized": false,
+  "production_write_count": 0,
+  "knowledge_reconstruction_count": 0,
+  "canary_execution_count": 0,
+  "external_data_upload_count": 0
+}
+

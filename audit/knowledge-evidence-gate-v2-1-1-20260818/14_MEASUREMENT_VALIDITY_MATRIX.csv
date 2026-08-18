@@ -1,0 +1,8 @@
+metric,value,denominator,measurement_status,reference_source,independent_of_system_under_test,derivation,limitations
+critical_false_negative,,15,NOT_MEASURED,No independent human/objective critical mismatch gold in frozen evidence,False,Requires reference-positive mismatch labels compared with accepted system output.,"System output, signature, and ASR transcript are not gold."
+wrongly_accepted_critical,,15,NOT_MEASURED,No independent human/objective critical truth in frozen evidence,False,Requires accepted output versus independently adjudicated critical truth.,"A signature match is system evidence, not reference truth."
+extractor_critical_error,,15,NOT_MEASURED,No reviewed/reference knowledge type labels in frozen evidence,False,Internal extractor state is retained as diagnostic only; no independent type truth exists.,The V2.1 inferred taxonomy cannot validate itself.
+critical_source_binding_failure,0,15,VERIFIED,Cross-record identity plus recomputed AUDIO/VTT/CLIP bytes,True,Count critical rows with cross-record conflicts/missing fields or non-verified required bytes.,Duplicate historical rows are canonicalized and reported separately.
+text_only_correction_accepted,0,24,VERIFIED,A/B claim comparison plus cross-record and recomputed audio/clip evidence,True,Count accepted claim changes lacking independently verified audio/clip bytes.,This does not establish semantic correctness of the changed claim.
+clean_control_harmful_change,,6,NOT_MEASURED,Independent semantic/human reference required for changed clean-control claims,False,A changed clean-control claim is observable; harmfulness needs independent reference truth.,All changed clean controls remain unresolved for semantic harmfulness.
+
