@@ -33,3 +33,13 @@ FULL_MEASUREMENT_INTEGRITY=false
 INDEPENDENT_GATE_DECISION=NOT_EVALUABLE
 KNOWLEDGE_CANARY_AUTHORIZED=false
 
+
+## Publication outcome
+- clean branch: fix/gate-v2-1-1-measurement-integrity-20260818
+- clean head after workflow fix: d0678d2a75a15540966b6233a52ff2850d68dd3a
+- clean PR: #5 (https://github.com/a13680970019-debug/video-teaching-knowledge-pipeline/pull/5)
+- PR2 commits present in clean branch: false
+- PR2 files present in clean branch: false
+- PR4 unchanged, open, unmerged
+- GitHub Actions: SUCCESS, run 32091088981
+
