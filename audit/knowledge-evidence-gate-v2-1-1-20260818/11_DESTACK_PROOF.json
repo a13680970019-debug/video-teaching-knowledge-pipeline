@@ -1,0 +1,16 @@
+{
+  "status": "PENDING_REMOTE_PUBLICATION",
+  "clean_branch_created": false,
+  "clean_branch": "fix/gate-v2-1-1-measurement-integrity-20260818",
+  "base": "main",
+  "main_sha_before_publication": "5dfac409c9cc8b7a7856a7df90259ddb09908c82",
+  "new_head_sha": "",
+  "merge_base": "",
+  "ahead_by": null,
+  "pr2_commits_present": null,
+  "pr2_files_present": null,
+  "destack_verified": false,
+  "pr4_preserved": true,
+  "pr4_action": "LEAVE_OPEN_UNMERGED_PENDING_USER_APPROVAL"
+}
+

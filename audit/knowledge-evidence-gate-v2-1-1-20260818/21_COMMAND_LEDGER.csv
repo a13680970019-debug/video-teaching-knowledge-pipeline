@@ -1,0 +1,10 @@
+sequence,command,status,result
+1,read frozen V2.1 fixed-24 evidence,PASS,24 rows / 24 unique
+2,recompute fixed manifest SHA256,PASS,e1b4107a2e4d12a0c760f73d0e90a5b32011d9af9f6291b84652161637e96931
+3,cross-record identity binding,PASS,24 BINDING_VERIFIED
+4,recompute AUDIO/VTT/CLIP SHA256,PASS,72 VERIFIED_BYTES
+5,derive temporal evidence state,PASS,14 WINDOW_ONLY; 1 TEMPORAL_CONFLICT
+6,derive clean-control and text-only metrics,PASS,clean changed claims NOT_MEASURED; text-only 0 VERIFIED
+7,run measurement-integrity tests and compileall,PASS,14 passed; compileall PASS
+8,build review package and round-trip validate,PASS,zipfile/CRC/round-trip checked
+

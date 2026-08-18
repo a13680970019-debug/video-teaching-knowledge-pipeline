@@ -1,0 +1,26 @@
+sample_id,claim_changed,accepted_downstream,audio_bound_evidence_verified,text_only_correction_accepted,measurement_status,reason
+V2C001,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2C002,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2C003,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2C004,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2C005,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2C006,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2U001,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2U002,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+V2U003,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+V2U004,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+V2U005,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+V2U006,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2U007,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+V2U008,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2U009,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+V2U010,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+V2U011,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2U012,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2U013,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+V2U014,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2U015,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+V2U016,True,True,True,False,VERIFIED,Changed output has independently recomputed audio/clip bytes.
+V2U017,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+V2U018,False,False,True,False,VERIFIED,No accepted changed output without byte-verified audio evidence.
+

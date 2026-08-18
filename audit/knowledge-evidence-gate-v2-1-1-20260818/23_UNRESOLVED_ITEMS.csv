@@ -1,0 +1,39 @@
+item_type,item_id,status,detail
+HUMAN_GOLD,V2U001,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U002,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U003,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U004,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U005,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U007,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U008,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U009,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U010,REQUIRED,Does the target speech occur inside the bound cue window?
+HUMAN_GOLD,V2U011,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U013,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U015,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U016,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U017,REQUIRED,Which critical token is actually spoken in the bound audio span?
+HUMAN_GOLD,V2U018,REQUIRED,Which unit is spoken in the bound audio span?
+TEMPORAL_TOKEN_EVIDENCE,V2U001,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U002,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U003,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U004,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U005,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U007,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U008,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U009,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U010,TEMPORAL_CONFLICT,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U011,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U013,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U015,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U016,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U017,WINDOW_ONLY,No token timestamps in frozen evidence
+TEMPORAL_TOKEN_EVIDENCE,V2U018,WINDOW_ONLY,No token timestamps in frozen evidence
+CLEAN_CONTROL_SEMANTIC_GOLD,V2C001,NOT_MEASURED,Claim changed; independent semantic reference required
+CLEAN_CONTROL_SEMANTIC_GOLD,V2C002,NOT_MEASURED,Claim changed; independent semantic reference required
+CLEAN_CONTROL_SEMANTIC_GOLD,V2C003,NOT_MEASURED,Claim changed; independent semantic reference required
+CLEAN_CONTROL_SEMANTIC_GOLD,V2C004,NOT_MEASURED,Claim changed; independent semantic reference required
+CLEAN_CONTROL_SEMANTIC_GOLD,V2C005,NOT_MEASURED,Claim changed; independent semantic reference required
+CLEAN_CONTROL_SEMANTIC_GOLD,V2C006,NOT_MEASURED,Claim changed; independent semantic reference required
+GIT_STACK,PR4,STACKED_ON_PR2,Historical PR4 preserved; clean branch publication pending
+

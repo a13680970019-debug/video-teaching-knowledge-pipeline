@@ -1,0 +1,25 @@
+name: measurement-integrity
+
+on:
+  push:
+    branches:
+      - fix/gate-v2-1-1-measurement-integrity-20260818
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile
+        run: python -m compileall pipeline tests
+      - name: Unit tests
+        run: python -m pytest -q tests
+

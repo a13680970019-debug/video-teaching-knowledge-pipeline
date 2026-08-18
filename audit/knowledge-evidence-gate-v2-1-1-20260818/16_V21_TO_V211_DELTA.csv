@@ -1,0 +1,26 @@
+sample_id,pipeline_acceptance,source_binding_v211,temporal_evidence_v211,gold_status_v211,measurement_conclusion,change_reason
+V2U001,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U002,BLOCKED_CRITICAL,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U003,BLOCKED_CRITICAL,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U004,BLOCKED_CRITICAL,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U005,BLOCKED_CRITICAL,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U006,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,NOT_CRITICAL,NOT_APPLICABLE,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U007,BLOCKED_CRITICAL,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U008,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U009,BLOCKED_CRITICAL,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U010,BLOCKED_CRITICAL,BINDING_VERIFIED,TEMPORAL_CONFLICT,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U011,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U012,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,NOT_CRITICAL,NOT_APPLICABLE,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U013,BLOCKED_CRITICAL,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U014,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,NOT_CRITICAL,NOT_APPLICABLE,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U015,BLOCKED_CRITICAL,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U016,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U017,BLOCKED_CRITICAL,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2U018,BLOCKED_CRITICAL,BINDING_VERIFIED,WINDOW_ONLY,NOT_REVIEWED,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2C001,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,NOT_CRITICAL,NOT_APPLICABLE,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2C002,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,NOT_CRITICAL,NOT_APPLICABLE,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2C003,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,NOT_CRITICAL,NOT_APPLICABLE,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2C004,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,NOT_CRITICAL,NOT_APPLICABLE,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2C005,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,NOT_CRITICAL,NOT_APPLICABLE,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+V2C006,ACCEPTED_AUDIO_BOUND,BINDING_VERIFIED,NOT_CRITICAL,NOT_APPLICABLE,NOT_EVALUABLE,V2.1 numeric safety result is retained as pipeline output; V2.1.1 separates independent measurement status.
+
