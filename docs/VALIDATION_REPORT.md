@@ -42,7 +42,7 @@ branch at the commit above**, not from the development directory:
 | 6 | Reproducibility | run the same input twice into two output roots | core content identical | `review_list.jsonl` and `review_list.csv` byte-identical across runs | **PASS** |
 | 7 | Isolation | inspect the output root; inspect the working tree; **execute the production-root guard** | writes confined to the output root; the guard refuses forbidden roots before writing | exactly 3 files under `outputs/main/`; no other file created; `outputs/` is git-ignored; `guard_output_root` raises for `D:\视频教学采集系统`, `D:\司法视频图像处理知识库` and the historical evidence root, `run()` refuses before creating anything, and no directory was created | **PASS** |
 | 8 | Clean install — fresh clone | `git clone --depth 1 --branch feat/public-reproducible-demo-20261013` into a new directory, then `bash scripts/verify.sh` | runs with no uncommitted file, exit 0 | 0 untracked files in the clone; `ALL CHECKS PASSED`; 52 tests pass | **PASS** |
-| 9 | Source integrity | sha256 of the migrated core before and after the whole task | unchanged | `993fe393…` identical at migration time and at validation time | **PASS** |
+| 9 | Source integrity | compare the **git blob identity** of the migrated core against the source branch | unchanged | `HEAD:pipeline/knowledge_evidence_gate_v21.py` = `origin/fix/gate-v2-1-…:pipeline/knowledge_evidence_gate_v21.py` = blob `96c348c5…`, content sha256 `993fe393…`; now also asserted by `scripts/verify.sh` | **PASS** |
 | 10 | One-command verification | `bash scripts/verify.sh` | all checks pass, exit 0 | `ALL CHECKS PASSED`, exit 0; with `pytest` absent it stops with a clear message and exit 4 | **PASS** |
 | 11 | Guard regression coverage | `pytest tests/test_demo_gate_review.py -k guard` | forbidden output roots refused | 4 guard tests pass (3 parametrised roots + refusal-before-write) | **PASS** |
 | 12 | Residue independence | delete `outputs/` and `.pytest-tmp/` first, then re-run | passes without any leftover state | passes; this check **found and fixed a real bug** — `--basetemp` failed on a fresh clone because its parent directory did not exist | **PASS (after fix)** |
@@ -71,6 +71,35 @@ residue-independence property is checked explicitly.
 
 This is recorded rather than quietly fixed, because it is exactly the class of
 error that "it works on my machine" hides.
+
+## Second defect: the integrity check itself was platform-dependent
+
+Checking the fresh clone also revealed that the **first version of this check
+was wrong**. It hashed the working-tree file:
+
+| Location | Working-tree bytes | Working-tree sha256 |
+|---|---|---|
+| development directory | 24050 (LF) | `993fe393…` |
+| fresh clone | 24618 (CRLF) | `6640bd07…` |
+
+The 568-byte difference is exactly 568 lines of CRLF, caused by this machine's
+`core.autocrlf=true`. The *conclusion* (content unchanged) was right — the
+stored blob is identical to the source branch's blob, `96c348c5…` — but the
+*method* was unsound: the published `993fe393…` only reproduced on an LF
+checkout, and a reviewer cloning on Windows would compute a different digest
+and reasonably suspect tampering.
+
+Two fixes:
+
+1. `.gitattributes` now declares `text eol=lf` for the source, test, fixture,
+   config and documentation types, so a checkout is byte-identical on every
+   platform. `git add --renormalize .` reported **no** content changes, which
+   confirms the stored blobs were already LF and nothing was rewritten.
+2. The integrity check now compares **git blob identity**, not a working-tree
+   hash, and is asserted by `scripts/verify.sh` on every run.
+
+Lesson recorded: for a file that must be provably unmodified, compare the git
+object, not the checked-out bytes.
 
 ## Observed gate summary (main sample set)
 

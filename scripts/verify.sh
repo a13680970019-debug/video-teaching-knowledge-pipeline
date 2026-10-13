@@ -72,4 +72,24 @@ mkdir -p .pytest-tmp
 "$PY" -m pytest -q tests --basetemp=.pytest-tmp/run -p no:cacheprovider
 echo
 
+echo "== migrated core integrity =="
+# Check the *blob*, not the working-tree file: with core.autocrlf=true the
+# checkout is CRLF while the repository stores LF, so a working-tree sha256 is
+# platform-dependent and would look like tampering on another machine.
+EXPECTED_BLOB="96c348c593a5d314858b52cbd17a29d26bdf6b71"
+EXPECTED_SHA256="993fe3932bb914868eab015e7e38e8db322b6f80f59736a5b14dcd4592fc48fb"
+CORE="pipeline/knowledge_evidence_gate_v21.py"
+if command -v git >/dev/null 2>&1 && git rev-parse --git-dir >/dev/null 2>&1; then
+  actual_blob="$(git rev-parse "HEAD:$CORE" 2>/dev/null || echo '?')"
+  actual_sha="$(git cat-file blob "HEAD:$CORE" | "$PY" -c 'import hashlib,sys; print(hashlib.sha256(sys.stdin.buffer.read()).hexdigest())')"
+  echo "blob   : $actual_blob"
+  echo "sha256 : $actual_sha"
+  [ "$actual_blob" = "$EXPECTED_BLOB" ] || { echo "FAIL: blob differs from the recorded migration"; exit 1; }
+  [ "$actual_sha" = "$EXPECTED_SHA256" ] || { echo "FAIL: core content differs"; exit 1; }
+  echo "ok - unchanged from the migrated source"
+else
+  echo "skipped: not a git checkout"
+fi
+echo
+
 echo "ALL CHECKS PASSED"

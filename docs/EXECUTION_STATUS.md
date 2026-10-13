@@ -115,6 +115,14 @@ regression tests were added for the production-root guard. Details in
 `docs/VALIDATION_REPORT.md`. This is the reason the evidence files are now
 captured from a fresh clone rather than from the working directory.
 
+A **second defect** surfaced at the same time: the source-integrity check hashed
+the working-tree file, which is platform-dependent under `core.autocrlf=true`
+(LF `993fe393…` here vs CRLF `6640bd07…` in a fresh clone). The conclusion was
+right — the stored blob `96c348c5…` is identical to the source branch's — but
+the method was unsound. `.gitattributes` now pins `text eol=lf` so checkouts are
+byte-identical everywhere (`git add --renormalize .` confirmed no content
+changed), and `scripts/verify.sh` now asserts **blob identity** instead.
+
 ## Not done (by design)
 
 Merging to `main`; submitting to MLH; changing repository visibility; touching
