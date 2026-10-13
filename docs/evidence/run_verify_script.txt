@@ -1,0 +1,14 @@
+$ bash scripts/verify.sh
+ok
+
+== demo: fail closed on a missing input file (expect exit 2) ==
+error: input file not found: does_not_exist.jsonl
+observed exit_code=2 (expected 2)
+ok
+
+== test suite ==
+....................................................                     [100%]
+52 passed in 2.20s
+
+ALL CHECKS PASSED
+exit_code=0

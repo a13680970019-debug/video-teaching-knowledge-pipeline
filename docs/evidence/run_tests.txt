@@ -1,0 +1,7 @@
+# Environment
+Python 3.13.14
+commit under test: c23d95b9b82e3d82d892d3884db787cd27149b2d
+
+$ mkdir -p .pytest-tmp && python -m pytest -q tests --basetemp=.pytest-tmp/run -p no:cacheprovider
+....................................................                     [100%]
+52 passed in 2.30s

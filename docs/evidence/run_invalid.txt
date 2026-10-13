@@ -1,0 +1,4 @@
+$ python -m pipeline.demo_gate_review --input examples/synthetic/invalid_missing_field.jsonl --output outputs/invalid
+error: input contract violated; no output written
+  - SYN-BAD-001: missing required field 'clip_sha256'
+exit_code=3

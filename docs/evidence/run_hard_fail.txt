@@ -1,0 +1,39 @@
+$ python -m pipeline.demo_gate_review --input examples/synthetic/evidence_hard_fail.jsonl --output outputs/hard_fail
+{
+  "stage": "V2.1",
+  "sample_total": 1,
+  "unique_sample_ids": 1,
+  "uncertainty_sample_count": 1,
+  "clean_control_count": 0,
+  "critical_units_total": 1,
+  "accepted_critical_count": 0,
+  "blocked_critical_count": 1,
+  "wrongly_accepted_critical_count": 0,
+  "critical_false_negative_count": 0,
+  "extractor_critical_error_count": 0,
+  "critical_source_binding_failure": 1,
+  "text_only_correction_accepted_count": 0,
+  "clean_control_harmful_change_count": 0,
+  "hard_fail_conditions": {
+    "critical_false_negative_count": 0,
+    "wrongly_accepted_critical_count": 0,
+    "extractor_critical_error_count": 0,
+    "critical_source_binding_failure": 1,
+    "text_only_correction_accepted_count": 0,
+    "clean_control_harmful_change_count": 0
+  },
+  "gate_decision": "FAIL",
+  "limited_canary_eligible": false,
+  "full_scale_authorized": false,
+  "knowledge_canary_authorized": false,
+  "coverage_and_safety_separated": true,
+  "decision_basis": "Critical evidence is admitted only when source binding, temporal evidence, type-specific signature, and generic extractor consistency are all satisfied; unresolved critical units remain quarantined.",
+  "input_file_ref": "evidence_hard_fail.jsonl",
+  "input_sha256": "650153291ba5bf92604942f3e58f4db6e40853d65d7eedf9816ac28423075876",
+  "record_count": 1,
+  "network_used": false,
+  "model_used": false,
+  "audio_opened": false,
+  "production_paths_written": 0
+}
+exit_code=0

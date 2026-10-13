@@ -1,0 +1,3 @@
+$ python -m pipeline.demo_gate_review --input examples/synthetic/does_not_exist.jsonl --output outputs/nope
+error: input file not found: does_not_exist.jsonl
+exit_code=2

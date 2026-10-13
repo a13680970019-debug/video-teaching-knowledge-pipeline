@@ -1,0 +1,15 @@
+# Fresh-clone reproduction
+commit: c23d95b9b82e3d82d892d3884db787cd27149b2d
+untracked files in clone: 8
+ci.yml present (expected: no): no
+
+$ bash scripts/verify.sh
+observed exit_code=2 (expected 2)
+ok
+
+== test suite ==
+....................................................                     [100%]
+52 passed in 2.43s
+
+ALL CHECKS PASSED
+exit_code=0

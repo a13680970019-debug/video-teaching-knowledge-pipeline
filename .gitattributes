@@ -1,0 +1,15 @@
+# Line-ending policy.
+#
+# Without this, a checkout is not byte-identical across machines: with
+# core.autocrlf=true (the Windows default) the working tree gets CRLF while the
+# repository stores LF, so any published sha256 of a working-tree file only
+# reproduces on one platform. Declaring eol=lf makes the checkout deterministic
+# everywhere. The stored blobs are already LF, so this changes no content.
+*.sh    text eol=lf
+*.py    text eol=lf
+*.jsonl text eol=lf
+*.json  text eol=lf
+*.toml  text eol=lf
+*.yml   text eol=lf
+*.md    text eol=lf
+*.csv   text eol=lf
