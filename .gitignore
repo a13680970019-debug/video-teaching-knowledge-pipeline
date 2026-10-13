@@ -81,3 +81,7 @@ Desktop.ini
 # IDE
 .vscode/
 .idea/
+
+# Demo run output and local test scratch
+outputs/
+.pytest-tmp/
