@@ -14,6 +14,7 @@ import pytest
 
 from pipeline.demo_gate_review import (
     REVIEW_FIELDS,
+    guard_output_root,
     load_records,
     run,
     validate_record,
@@ -200,6 +201,28 @@ def test_source_ids_are_traceable_to_input(sample_id: str, tmp_path: Path):
     source_ids = {json.loads(line)["sample_id"] for line in SAMPLES.read_text(encoding="utf-8").splitlines() if line.strip()}
     rows = {json.loads(line)["sample_id"] for line in (out / "review_list.jsonl").read_text(encoding="utf-8").splitlines()}
     assert sample_id in source_ids and sample_id in rows
+
+
+# --- production-root guard -------------------------------------------------
+
+FORBIDDEN_OUTPUT_ROOTS = [
+    Path("D:/视频教学采集系统/_guard_probe"),
+    Path("D:/司法视频图像处理知识库/_guard_probe"),
+    Path("D:/work/audit/knowledge-evidence-gate-pilot-v2-20260817/_probe"),
+]
+
+
+@pytest.mark.parametrize("target", FORBIDDEN_OUTPUT_ROOTS)
+def test_guard_refuses_forbidden_output_roots(target: Path):
+    with pytest.raises(ValueError):
+        guard_output_root(target)
+
+
+def test_guard_refuses_before_creating_anything():
+    target = FORBIDDEN_OUTPUT_ROOTS[0]
+    with pytest.raises(ValueError):
+        run(SAMPLES, target)
+    assert not target.exists()
 
 
 # --- observed output versus hand-derived expectation ------------------------

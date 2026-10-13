@@ -65,6 +65,10 @@ echo "ok"
 echo
 
 echo "== test suite =="
+# Keep pytest's scratch inside the repo (already git-ignored) instead of the
+# system temp directory. The parent must exist first: pytest creates basetemp
+# with mkdir(parents=False) and fails on a fresh clone otherwise.
+mkdir -p .pytest-tmp
 "$PY" -m pytest -q tests --basetemp=.pytest-tmp/run -p no:cacheprovider
 echo
 
