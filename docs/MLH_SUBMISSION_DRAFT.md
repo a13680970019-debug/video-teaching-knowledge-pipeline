@@ -140,6 +140,14 @@ GitHub REST API. No credential value was printed or stored in any file.
 
 `main` is **not** updated by this PR — the default branch still has no code.
 
+**CI gap:** the PR currently has **0 check runs**. A CI workflow
+(`.github/workflows/ci.yml`, Linux + Windows, Python 3.11 + 3.13) is prepared
+and its steps were replicated locally, but it cannot be pushed: any file under
+`.github/workflows/` requires the token's `workflow` scope, which this
+credential does not have (`403 Resource not accessible by integration`). The
+patch is kept at `F:\codex-workspaces\vtkp-ci-workflow.patch` for the owner to
+apply.
+
 ## 7. Open decisions for the owner
 
 1. Licence: none has been selected. This repository is public but that does not

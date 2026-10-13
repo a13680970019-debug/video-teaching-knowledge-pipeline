@@ -45,7 +45,7 @@ Resumable record. No secrets, no personal absolute paths.
 | `TESTS` | **PASS** (48 passed) |
 | `SOURCE_INTEGRITY` | **PASS** (migrated core sha256 `993fe393…` unchanged) |
 | `DOCUMENTATION` | **PASS** |
-| `REMOTE_PR` | **PASS** — Draft PR #6, `state=open`, `draft=true`, `mergeable_state=clean`, 25 files |
+| `REMOTE_PR` | **PASS** — Draft PR #6, `state=open`, `draft=true`, `mergeable_state=clean`, 25 files. **Partial gap:** 0 check runs; the CI workflow is prepared locally but cannot be pushed (token lacks `workflow` scope) |
 | `MLH_RULES_ELIGIBILITY` | **NOT_EVALUATED** — the event rulebook was not available |
 
 No single PASS hides the NOT_EVALUATED item or the pending screenshot.
@@ -54,16 +54,47 @@ No single PASS hides the NOT_EVALUATED item or the pending screenshot.
 
 | Item | Value |
 |---|---|
-| Pushed branch | `feat/public-reproducible-demo-20261013` @ `0a9489d5bb86f66f1d48f49d81fec36f3bc8bd51` |
+| Pushed branch | `feat/public-reproducible-demo-20261013` @ `cdde08168d3c3373fc05b3c034cb402dd3c77c53` |
 | Draft PR | https://github.com/a13680970019-debug/video-teaching-knowledge-pipeline/pull/6 |
 | Base | `main` @ `5dfac40` (unchanged — **not merged**) |
-| PR state | open, draft, mergeable clean |
+| PR state | open, draft, mergeable clean, 25 files, +2244 / -1 |
+| CI check runs on the PR | **0 — no checks ran** (see below) |
 
 Credential note: `gh auth status` reports "not logged into any GitHub hosts" and
 `gh pr create` refuses to run, but a working credential **is** available through
 git's credential helper for `github.com`. The push and the Draft PR were
 therefore completed via `git push` and the GitHub REST API. No credential value
 was printed, logged or written to any file.
+
+## CI — prepared but blocked by token scope
+
+The PR shows **zero check runs**, because the branch is cut from `main`, which
+carries no workflow file. A workflow was written to close that gap:
+
+* file: `.github/workflows/ci.yml` (present in the working tree)
+* commit: `d1dc975`, preserved on the local-only branch `local/ci-workflow-pending`
+* patch: `F:\codex-workspaces\vtkp-ci-workflow.patch`
+* what it does: matrix over `ubuntu-latest` + `windows-latest` × Python 3.11 +
+  3.13; compiles sources, runs the demo, asserts both fail-closed exit codes
+  (3 = contract violation, 2 = missing input, and that nothing is written), and
+  runs the test suite. All of its steps were replicated locally and pass.
+* **why it is not pushed:** the push is rejected with
+  `refusing to allow an OAuth App to create or update workflow .github/workflows/ci.yml without 'workflow' scope`,
+  and the connector route returns `403 Resource not accessible by integration`
+  for the same reason. Any file under `.github/workflows/` needs the `workflow`
+  scope, which this credential does not have.
+
+To land it, the owner needs either to grant the token the `workflow` scope and
+push, or to apply the patch from a machine with that scope:
+
+```bash
+cd F:\codex-workspaces\vtkp-public-demo-20261013
+git checkout local/ci-workflow-pending      # or: git apply F:\codex-workspaces\vtkp-ci-workflow.patch
+git push origin local/ci-workflow-pending:feat/public-reproducible-demo-20261013
+```
+
+Until then, `.github/workflows/` is listed in `.git/info/exclude` so the working
+tree stays clean while the file remains on disk.
 
 ## Not done (by design)
 

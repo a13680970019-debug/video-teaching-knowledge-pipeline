@@ -12,7 +12,7 @@ Base: `origin/main` @ `5dfac409c9cc8b7a7856a7df90259ddb09908c82`
 | Python | 3.13.14 (clean venv, created outside the repository) |
 | Test runner | pytest 9.1.1 |
 | Runtime dependencies | none (standard library only) |
-| Platform scope | **Windows only.** Linux/macOS were not executed, so cross-platform behaviour is not claimed. |
+| Platform scope | **Windows only for the runs recorded below.** A CI workflow that would also exercise `ubuntu-latest` (Python 3.11 + 3.13) is prepared in `.github/workflows/ci.yml` but could not be pushed — the credential lacks the `workflow` scope, so **no CI check runs exist on the PR**. Cross-platform behaviour is therefore still **not** claimed. |
 
 Raw terminal captures: `docs/evidence/run_main.txt`, `run_hard_fail.txt`,
 `run_invalid.txt`, `run_missing.txt`, `run_tests.txt`.
