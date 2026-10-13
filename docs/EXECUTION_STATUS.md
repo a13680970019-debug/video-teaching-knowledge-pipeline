@@ -108,6 +108,33 @@ Merging to `main`; submitting to MLH; changing repository visibility; touching
 the production roots; re-running the frozen 24-sample replay; re-collecting the
 3649-episode corpus; running any ASR, model or paid API.
 
+## Data reconciliation note (recorded, not resolved)
+
+The inherited baseline document `docs/PROJECT_BASELINE.md` declares:
+
+| Quantity | Value |
+|---|---|
+| total episodes | 3649 |
+| transcript available | 3057 |
+| ASR required | 591 |
+| indexed | 3055 |
+| quarantined | 2 |
+
+`3057 + 591 = 3648`, one short of the declared total of 3649, and adding the 2
+quarantined episodes gives 3650 instead. **This discrepancy is recorded here as
+an open reconciliation question.** No number was adjusted to make the columns
+add up, and no re-collection was performed to explain it.
+
+Two reasons this task does not resolve it:
+
+1. These are **document declarations**, not facts verified by this task. The
+   corpus was never enumerated, counted or opened.
+2. Resolving it would require the kind of full-corpus work this task explicitly
+   excludes.
+
+The demo does not read, count or touch the corpus in any way, so it neither
+depends on nor changes this figure.
+
 ## Resume instructions
 
 1. `cd F:\codex-workspaces\vtkp-public-demo-20261013`
