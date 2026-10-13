@@ -1,0 +1,46 @@
+# Environment
+Python 3.13.14
+pytest 9.1.1
+platform: MINGW64_NT-10.0-19045 3.6.9-b4195d69.x86_64
+commit under test: 040ddd1bcc9083cb378ca044bd96603e90ce8673
+
+# Command 1: main sample set
+$ python -m pipeline.demo_gate_review --input examples/synthetic/evidence_samples.jsonl --output outputs/main
+{
+  "stage": "V2.1",
+  "sample_total": 7,
+  "unique_sample_ids": 7,
+  "uncertainty_sample_count": 6,
+  "clean_control_count": 1,
+  "critical_units_total": 6,
+  "accepted_critical_count": 3,
+  "blocked_critical_count": 3,
+  "wrongly_accepted_critical_count": 0,
+  "critical_false_negative_count": 0,
+  "extractor_critical_error_count": 0,
+  "critical_source_binding_failure": 0,
+  "text_only_correction_accepted_count": 0,
+  "clean_control_harmful_change_count": 0,
+  "hard_fail_conditions": {
+    "critical_false_negative_count": 0,
+    "wrongly_accepted_critical_count": 0,
+    "extractor_critical_error_count": 0,
+    "critical_source_binding_failure": 0,
+    "text_only_correction_accepted_count": 0,
+    "clean_control_harmful_change_count": 0
+  },
+  "gate_decision": "CONDITIONAL_PASS",
+  "limited_canary_eligible": false,
+  "full_scale_authorized": false,
+  "knowledge_canary_authorized": false,
+  "coverage_and_safety_separated": true,
+  "decision_basis": "Critical evidence is admitted only when source binding, temporal evidence, type-specific signature, and generic extractor consistency are all satisfied; unresolved critical units remain quarantined.",
+  "input_file_ref": "evidence_samples.jsonl",
+  "input_sha256": "080897f19c8225f714c01138bbdd45efb4cf450fcb7a0b296fdd067d3763530a",
+  "record_count": 7,
+  "network_used": false,
+  "model_used": false,
+  "audio_opened": false,
+  "production_paths_written": 0
+}
+exit_code=0

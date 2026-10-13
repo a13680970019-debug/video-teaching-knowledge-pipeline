@@ -1,0 +1,4 @@
+$ python -m pytest -q tests --basetemp=.pytest-tmp/run
+................................................                         [100%]
+48 passed in 2.97s
+exit_code=0
