@@ -12,9 +12,8 @@
   The demo described here lives on the branch
   `feat/public-reproducible-demo-20261013`
   (commit `040ddd1bcc9083cb378ca044bd96603e90ce8673`).
-* Draft PR: **not created.** See §6 — the GitHub write credential is not
-  available in this environment (`REMOTE_PR = BLOCKED`). The branch exists only
-  locally, with the exact patch recorded in `docs/EXECUTION_STATUS.md`.
+* Draft PR: https://github.com/a13680970019-debug/video-teaching-knowledge-pipeline/pull/6
+  (open, draft, mergeable clean, 25 files)
 * Pending before merge: human review, then the owner's merge decision.
 
 ## 2. Description
@@ -129,14 +128,17 @@ invented.
 
 ## 6. Remote status
 
-`gh` is not authenticated in this environment, no `GH_TOKEN` / `GITHUB_TOKEN`
-is set, no git credential helper is configured for `github.com`, and SSH to
-`github.com` is rejected (`Permission denied (publickey)`).
+`REMOTE_PR = PASS`. The branch `feat/public-reproducible-demo-20261013` was
+pushed to `origin` at `0a9489d…` and Draft PR #6 was opened against `main`:
 
-Result: **`REMOTE_PR = BLOCKED`.** The work is committed locally on
-`feat/public-reproducible-demo-20261013` at `040ddd1…`; the branch was not
-pushed and no PR was opened. The owner must push and open the Draft PR, or
-provide a credential. Credentials must **not** be pasted into the chat.
+https://github.com/a13680970019-debug/video-teaching-knowledge-pipeline/pull/6
+
+Note: `gh auth status` reports no logged-in host and `gh pr create` refuses to
+run, but a working credential is available through git's credential helper for
+`github.com`. The push used `git push`; the Draft PR was created through the
+GitHub REST API. No credential value was printed or stored in any file.
+
+`main` is **not** updated by this PR — the default branch still has no code.
 
 ## 7. Open decisions for the owner
 

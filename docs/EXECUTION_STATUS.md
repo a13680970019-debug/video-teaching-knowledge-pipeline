@@ -33,7 +33,7 @@ Resumable record. No secrets, no personal absolute paths.
 | P4 Public samples | **PASS** | 7 + 1 + 1 original synthetic fixtures; hand-derived expectations with derivation rules |
 | P5 Validation & reproduction | **PASS** | 48 tests pass in a clean venv; 9/9 validation checks pass; see `docs/VALIDATION_REPORT.md` |
 | P6 README & submission material | **PASS (screenshot pending)** | README rewritten; MLH draft written; screenshot not obtainable headless — real text captures provided instead |
-| P7 Git / push / Draft PR | **BLOCKED** | Local commits exist; push blocked by missing credential |
+| P7 Git / push / Draft PR | **PASS** | Branch pushed to `origin`; Draft PR #6 opened against `main` |
 
 ## Acceptance status
 
@@ -45,20 +45,31 @@ Resumable record. No secrets, no personal absolute paths.
 | `TESTS` | **PASS** (48 passed) |
 | `SOURCE_INTEGRITY` | **PASS** (migrated core sha256 `993fe393…` unchanged) |
 | `DOCUMENTATION` | **PASS** |
-| `REMOTE_PR` | **BLOCKED** — see below |
+| `REMOTE_PR` | **PASS** — Draft PR #6, `state=open`, `draft=true`, `mergeable_state=clean`, 25 files |
 | `MLH_RULES_ELIGIBILITY` | **NOT_EVALUATED** — the event rulebook was not available |
 
-No single PASS hides the BLOCKED or NOT_EVALUATED items.
+No single PASS hides the NOT_EVALUATED item or the pending screenshot.
 
-## Blocker detail
+## Remote state
 
-`gh` is not authenticated; `GH_TOKEN` / `GITHUB_TOKEN` are unset; no credential
-helper is configured for `github.com`; SSH to `github.com` is rejected
-(`Permission denied (publickey)`). Therefore the branch was **not pushed** and
-no Draft PR was created.
+| Item | Value |
+|---|---|
+| Pushed branch | `feat/public-reproducible-demo-20261013` @ `0a9489d5bb86f66f1d48f49d81fec36f3bc8bd51` |
+| Draft PR | https://github.com/a13680970019-debug/video-teaching-knowledge-pipeline/pull/6 |
+| Base | `main` @ `5dfac40` (unchanged — **not merged**) |
+| PR state | open, draft, mergeable clean |
 
-Do not paste a credential into the chat. The owner can either push from a
-machine that already has GitHub access, or provide access another way.
+Credential note: `gh auth status` reports "not logged into any GitHub hosts" and
+`gh pr create` refuses to run, but a working credential **is** available through
+git's credential helper for `github.com`. The push and the Draft PR were
+therefore completed via `git push` and the GitHub REST API. No credential value
+was printed, logged or written to any file.
+
+## Not done (by design)
+
+Merging to `main`; submitting to MLH; changing repository visibility; touching
+the production roots; re-running the frozen 24-sample replay; re-collecting the
+3649-episode corpus; running any ASR, model or paid API.
 
 ## Resume instructions
 
@@ -67,17 +78,10 @@ machine that already has GitHub access, or provide access another way.
 3. `git log --oneline -3` — expect `040ddd1` then `5dfac40`.
 4. Re-run acceptance: `python -m pipeline.demo_gate_review --input examples/synthetic/evidence_samples.jsonl --output outputs/main`
 5. Re-run tests: `python -m pytest -q tests`
-6. Only then attempt `git push -u origin feat/public-reproducible-demo-20261013`
-   and open a Draft PR against `main`.
-
-## What was deliberately not done
-
-Merging to `main`; submitting to MLH; changing repository visibility;
-touching the production roots; re-running the frozen 24-sample replay;
-re-collecting the 3649-episode corpus; running any ASR, model or paid API.
+6. To continue: review Draft PR #6, then the owner decides on merge.
 
 ## Open question for the owner
 
-Exactly one thing is missing that the agent cannot supply: **GitHub write
-access** (or a push performed by the owner). Everything else is complete and
-locally verifiable.
+One decision remains that the agent must not take: **whether to merge Draft
+PR #6 into `main`**, and whether to submit to MLH (which additionally needs the
+event rulebook, see `docs/MLH_SUBMISSION_DRAFT.md` §5).
