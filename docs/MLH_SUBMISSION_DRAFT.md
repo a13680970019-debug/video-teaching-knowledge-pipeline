@@ -30,7 +30,7 @@
 - 复用仓库既有分支中的 `pipeline/knowledge_evidence_gate_v21.py`（未改动，sha256 `993fe393…`）。
 - 新写离线适配入口 `pipeline/demo_gate_review.py`：定义并校验输入契约、映射到核心评估、导出带来源定位的审核清单与门禁汇总，失败时非零退出。
 - 新写原创合成样本、人工推导的预期输出与规则说明、27 个新测试。
-- 在仓库外的干净虚拟环境中完成复现验证（48 项测试通过）。
+- 在仓库外的干净虚拟环境中完成复现验证（52 项测试通过），并从一个全新克隆再次复现。
 - 撰写 README、演示范围、迁移记录、验证报告与本提交草稿。
 
 **限制.**
@@ -69,7 +69,7 @@ decision, exported with its source location.
 - Wrote original synthetic fixtures, hand-derived expected outputs with their
   derivation rules, and 27 new tests.
 - Verified reproduction in a clean virtual environment outside the repository
-  (48 tests passing).
+  (52 tests passing).
 - Wrote the README, demo scope, migration record, validation report and this
   submission draft.
 
@@ -108,8 +108,13 @@ output is delivered as text instead:
 | `docs/evidence/run_hard_fail.txt` | fail-closed gate | `... --input examples/synthetic/evidence_hard_fail.jsonl --output outputs/hard_fail` | exit 0, `FAIL` |
 | `docs/evidence/run_invalid.txt` | contract violation | `... --input examples/synthetic/invalid_missing_field.jsonl --output outputs/invalid` | exit 3, nothing written |
 | `docs/evidence/run_missing.txt` | missing input | `... --input examples/synthetic/does_not_exist.jsonl --output outputs/nope` | exit 2, nothing written |
-| `docs/evidence/run_tests.txt` | test suite | `python -m pytest -q tests` | 48 passed |
-| `scripts/verify.sh` | one-command reproduction of every check above | `bash scripts/verify.sh` | `ALL CHECKS PASSED`, exit 0 |
+| `docs/evidence/run_tests.txt` | test suite | `python -m pytest -q tests` | 52 passed |
+| `docs/evidence/run_verify_script.txt` | one-command reproduction of every check above | `bash scripts/verify.sh` | `ALL CHECKS PASSED`, exit 0 |
+| `docs/evidence/run_fresh_clone.txt` | reproduction from a pristine `git clone` | `git clone --depth 1 --branch feat/public-reproducible-demo-20261013 … && bash scripts/verify.sh` | 0 untracked files; `ALL CHECKS PASSED`, exit 0 |
+| `docs/evidence/run_guard_probe.txt` | production-root write guard | direct `guard_output_root` / `run` probe | all three forbidden roots refused; nothing created |
+
+All captures were taken from a fresh clone of the pushed branch at commit
+`c23d95b`, not from a development directory.
 
 ## 5. Rule checklist
 

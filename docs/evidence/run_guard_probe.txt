@@ -1,0 +1,6 @@
+# Production-root guard probe (run from a fresh clone)
+refused: D:\视频教学采集系统\_guard_probe
+refused: D:\司法视频图像处理知识库\_guard_probe
+refused: D:\work\audit\knowledge-evidence-gate-pilot-v2-20260817\_probe
+run() refused before writing
+probe dir created: False

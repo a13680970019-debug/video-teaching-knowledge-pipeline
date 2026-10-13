@@ -114,7 +114,7 @@ python -m pipeline.demo_gate_review --input examples/synthetic/nope.jsonl --outp
 ## 测试
 
 ```bash
-python -m pytest -q tests      # 预期 48 passed
+python -m pytest -q tests      # 预期 52 passed
 ```
 
 ## 一键复现全部验证

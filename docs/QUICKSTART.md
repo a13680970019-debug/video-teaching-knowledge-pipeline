@@ -80,7 +80,7 @@ python -m pipeline.demo_gate_review \
 python -m pytest -q tests
 ```
 
-Expected: `48 passed`.
+Expected: `52 passed`.
 
 ## 6. Check the output against the hand-derived expectation
 

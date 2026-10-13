@@ -29,7 +29,7 @@ $ python -m pipeline.demo_gate_review --input examples/synthetic/evidence_hard_f
   "coverage_and_safety_separated": true,
   "decision_basis": "Critical evidence is admitted only when source binding, temporal evidence, type-specific signature, and generic extractor consistency are all satisfied; unresolved critical units remain quarantined.",
   "input_file_ref": "evidence_hard_fail.jsonl",
-  "input_sha256": "9b177461c92645e759797a7ce2a6f55cc3c69f9dd45ecd53a1c67e75045bed0b",
+  "input_sha256": "650153291ba5bf92604942f3e58f4db6e40853d65d7eedf9816ac28423075876",
   "record_count": 1,
   "network_used": false,
   "model_used": false,

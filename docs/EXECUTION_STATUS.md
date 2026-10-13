@@ -31,7 +31,7 @@ Resumable record. No secrets, no personal absolute paths.
 | P2 Minimal demo selection | **PASS** | Path B chosen; scope fixed in `docs/DEMO_SCOPE.md` |
 | P3 Migration & minimal fix | **PASS** | 3 files reused verbatim (hash-verified); 1 new adapter; paths parameterised; guard against production output roots |
 | P4 Public samples | **PASS** | 7 + 1 + 1 original synthetic fixtures; hand-derived expectations with derivation rules |
-| P5 Validation & reproduction | **PASS** | 48 tests pass in a clean venv; 9/9 validation checks pass; see `docs/VALIDATION_REPORT.md` |
+| P5 Validation & reproduction | **PASS** | 52 tests pass in a clean venv and in a fresh clone; 12/12 validation checks pass; see `docs/VALIDATION_REPORT.md` |
 | P6 README & submission material | **PASS (screenshot pending)** | README rewritten; MLH draft written; screenshot not obtainable headless — real text captures provided instead |
 | P7 Git / push / Draft PR | **PASS** | Branch pushed to `origin`; Draft PR #6 opened against `main` |
 
@@ -42,7 +42,7 @@ Resumable record. No secrets, no personal absolute paths.
 | `SOURCE_DISCOVERY` | **PASS** |
 | `PUBLIC_CONTENT_REVIEW` | **PASS** (scan clean; no secrets, no media, no DB, no personal absolute paths added) |
 | `DEMO_REPRODUCIBILITY` | **PASS** |
-| `TESTS` | **PASS** (48 passed) |
+| `TESTS` | **PASS** (52 passed) |
 | `SOURCE_INTEGRITY` | **PASS** (migrated core sha256 `993fe393…` unchanged) |
 | `DOCUMENTATION` | **PASS** |
 | `REMOTE_PR` | **PASS** — Draft PR #6, `state=open`, `draft=true`, `mergeable_state=clean`, 25 files. **Partial gap:** 0 check runs; the CI workflow is prepared locally but cannot be pushed (token lacks `workflow` scope) |
@@ -101,6 +101,19 @@ run (compile, demo, both fail-closed exit codes, test suite), runnable by any
 reviewer with one command and pushable without the `workflow` scope. This covers
 the reproducibility value of CI; what remains uncovered is only *automated*
 per-PR checking and Linux execution.
+
+## Defect found and fixed during validation
+
+The fresh-clone check initially **failed**: 16 tests errored because
+`pytest --basetemp=.pytest-tmp/run` needs its parent directory to exist
+(pytest uses `mkdir(parents=False)`). It had passed only because the
+development directory still held a `.pytest-tmp/` from an earlier manual
+`mkdir -p` — the PASS depended on residue a fresh clone does not have.
+
+Fixed in `c23d95b` (`scripts/verify.sh` now creates the parent first), and 4
+regression tests were added for the production-root guard. Details in
+`docs/VALIDATION_REPORT.md`. This is the reason the evidence files are now
+captured from a fresh clone rather than from the working directory.
 
 ## Not done (by design)
 
