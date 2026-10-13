@@ -3,6 +3,24 @@
 Everything below was executed on Windows 11 with Python 3.13 and Git Bash.
 See `docs/VALIDATION_REPORT.md` for the recorded run.
 
+## 0. One command (recommended)
+
+If you just want to know whether the demo works, run every acceptance check at
+once:
+
+```bash
+bash scripts/verify.sh
+```
+
+It compiles the sources, runs the demo on the synthetic sample set, asserts
+both fail-closed exit codes (3 = contract violation, 2 = missing input, and
+that nothing is written), and runs the test suite. It ends with
+`ALL CHECKS PASSED` and exit 0. Point it at a specific interpreter with
+`PYTHON=/path/to/python bash scripts/verify.sh`. If `pytest` is missing it
+stops with a clear message and exit 4 rather than a stack trace.
+
+The steps below break the same checks down individually.
+
 ## 1. Get the code
 
 ```bash

@@ -109,6 +109,7 @@ output is delivered as text instead:
 | `docs/evidence/run_invalid.txt` | contract violation | `... --input examples/synthetic/invalid_missing_field.jsonl --output outputs/invalid` | exit 3, nothing written |
 | `docs/evidence/run_missing.txt` | missing input | `... --input examples/synthetic/does_not_exist.jsonl --output outputs/nope` | exit 2, nothing written |
 | `docs/evidence/run_tests.txt` | test suite | `python -m pytest -q tests` | 48 passed |
+| `scripts/verify.sh` | one-command reproduction of every check above | `bash scripts/verify.sh` | `ALL CHECKS PASSED`, exit 0 |
 
 ## 5. Rule checklist
 

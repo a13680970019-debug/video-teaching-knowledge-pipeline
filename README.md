@@ -117,6 +117,16 @@ python -m pipeline.demo_gate_review --input examples/synthetic/nope.jsonl --outp
 python -m pytest -q tests      # 预期 48 passed
 ```
 
+## 一键复现全部验证
+
+```bash
+bash scripts/verify.sh
+```
+
+编译源码 → 跑演示 → 断言两个失败退出码（3 / 2，并确认不产生输出目录）→ 跑测试，
+最后输出 `ALL CHECKS PASSED`。等价于 CI 会做的事，但不需要任何 CI 服务。
+缺少 `pytest` 时给出明确提示并以退出码 4 结束。
+
 ## 数据来源与合成样本声明
 
 `examples/synthetic/` 下的全部样本均为**为本演示手写的原创合成数据**，

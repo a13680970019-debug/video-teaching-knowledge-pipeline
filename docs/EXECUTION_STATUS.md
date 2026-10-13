@@ -96,6 +96,12 @@ git push origin local/ci-workflow-pending:feat/public-reproducible-demo-20261013
 Until then, `.github/workflows/` is listed in `.git/info/exclude` so the working
 tree stays clean while the file remains on disk.
 
+**Delivered instead:** `scripts/verify.sh` — the same checks the workflow would
+run (compile, demo, both fail-closed exit codes, test suite), runnable by any
+reviewer with one command and pushable without the `workflow` scope. This covers
+the reproducibility value of CI; what remains uncovered is only *automated*
+per-PR checking and Linux execution.
+
 ## Not done (by design)
 
 Merging to `main`; submitting to MLH; changing repository visibility; touching

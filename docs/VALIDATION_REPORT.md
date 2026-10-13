@@ -40,6 +40,7 @@ Raw terminal captures: `docs/evidence/run_main.txt`, `run_hard_fail.txt`,
 | 7 | Isolation | inspect the output root; inspect the working tree | writes confined to the output root; no production DB access | exactly 3 files under `outputs/main/`; no other file created; `outputs/` is git-ignored; adapter refuses production/knowledge-base output roots | **PASS** |
 | 8 | Clean install | fresh venv outside the repo, install only pytest, run from committed content | runs without any uncommitted file | 48 tests collected and passed; demo runs with no third-party package | **PASS** |
 | 9 | Source integrity | sha256 of the migrated core before and after the whole task | unchanged | `993fe393…` identical at migration time and at validation time | **PASS** |
+| 10 | One-command verification | `bash scripts/verify.sh` | all checks pass, exit 0 | `ALL CHECKS PASSED`, exit 0; with `pytest` absent it stops with a clear message and exit 4 | **PASS** |
 
 Test suite: **48 passed, 0 failed** (`docs/evidence/run_tests.txt`). This
 comprises the 21 tests migrated with the core module plus 27 new demo tests.
