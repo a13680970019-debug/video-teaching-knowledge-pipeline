@@ -40,15 +40,15 @@ Resumable record. No secrets, no personal absolute paths.
 | Key | Value |
 |---|---|
 | `SOURCE_DISCOVERY` | **PASS** |
-| `PUBLIC_CONTENT_REVIEW` | **PASS** (scan clean; no secrets, no media, no DB, no personal absolute paths added) |
+| `PUBLIC_CONTENT_REVIEW` | **PASS** (pattern-based scan, see method note below) |
 | `DEMO_REPRODUCIBILITY` | **PASS** |
 | `TESTS` | **PASS** (52 passed) |
 | `SOURCE_INTEGRITY` | **PASS** (migrated core sha256 `993fe393…` unchanged) |
 | `DOCUMENTATION` | **PASS** |
 | `REMOTE_PR` | **PASS** — Draft PR #6, `state=open`, `draft=true`, `mergeable_state=clean`, 25 files. **Partial gap:** 0 check runs; the CI workflow is prepared locally but cannot be pushed (token lacks `workflow` scope) |
-| `MLH_RULES_ELIGIBILITY` | **NOT_EVALUATED** — the event rulebook was not available |
+| `MLH_RULES_ELIGIBILITY` | **FAIL** — evaluated against MLH's published standard hackathon rules (retrieved 2026-10-13). The core module pre-dates this work and is reused unchanged, which conflicts with rules 6/9/10 and Digital Rule 6 (no prior work); no demo video exists either. See `docs/MLH_SUBMISSION_DRAFT.md` §0 and §5 |
 
-No single PASS hides the NOT_EVALUATED item or the pending screenshot.
+No single PASS hides the FAIL or the pending screenshot.
 
 ## Remote state
 
@@ -129,6 +129,32 @@ Merging to `main`; submitting to MLH; changing repository visibility; touching
 the production roots; re-running the frozen 24-sample replay; re-collecting the
 3649-episode corpus; running any ASR, model or paid API.
 
+## Content review — method and limitations
+
+`PUBLIC_CONTENT_REVIEW = PASS`, but the method matters, so it is stated rather
+than implied:
+
+| Check | Method | Result |
+|---|---|---|
+| Secrets in the baseline (`main`) | `git grep` over the whole tree for key/token/password patterns | no hits |
+| Secrets in this branch | `git grep` over the whole tree for key/token/password patterns | no hits |
+| Secrets — independent scanner | attempted GitHub's secret-scanning service via the connector | **unavailable**: `Repository does not have GitHub Advanced Security enabled`. Fell back to the pattern scan above |
+| Media / database / archive in the commits | `git ls-tree` filtered by extension | none |
+| Absolute paths in code | `git grep` for drive-letter patterns across `pipeline/ tests/ examples/ scripts/` | 5 hits, all **intentional**: the three forbidden output roots inside `guard_output_root` and the matching test fixtures. Those production-root strings are already public in `main`'s `README.md`, so this is not a new disclosure |
+| Private absolute paths | manual review of every added file | none added |
+
+**Limitations, stated plainly:**
+
+* No independent scanner was available (Advanced Security is not enabled on this
+  repository), so the secret check is **pattern-based only**. It covers common
+  key/token/password shapes and private-key headers; it is not equivalent to a
+  vendor secret-scanning engine and is not claimed to be.
+* The scan covers the current trees of `main` and this branch. It cannot prove
+  that no sensitive content exists anywhere in the repository's **past commits**.
+* Per the plan, had the baseline contained sensitive content the correct action
+  would have been to stop the push and report, not to rewrite history. That
+  situation did not arise.
+
 ## Data reconciliation note (recorded, not resolved)
 
 The inherited baseline document `docs/PROJECT_BASELINE.md` declares:
@@ -167,6 +193,12 @@ depends on nor changes this figure.
 
 ## Open question for the owner
 
-One decision remains that the agent must not take: **whether to merge Draft
-PR #6 into `main`**, and whether to submit to MLH (which additionally needs the
-event rulebook, see `docs/MLH_SUBMISSION_DRAFT.md` §5).
+Two decisions remain that the agent must not take:
+
+1. **Whether to merge Draft PR #6 into `main`.**
+2. **Whether to submit to MLH at all.** `MLH_RULES_ELIGIBILITY` is now **FAIL**,
+   not unevaluated: MLH's published standard rules forbid re-using prior project
+   materials (rules 6/9/10) and digital events forbid prior work outright
+   (Digital Rule 6), and this submission reuses a pre-existing core module. The
+   four options are laid out in `docs/MLH_SUBMISSION_DRAFT.md` §0. None of them
+   is an engineering task the agent can pick on its own.

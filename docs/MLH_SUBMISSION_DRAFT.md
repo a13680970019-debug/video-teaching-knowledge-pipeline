@@ -1,19 +1,75 @@
 # MLH submission draft
 
-> Status: **draft only.** Nothing has been submitted. `MLH_RULES_ELIGIBILITY`
-> is `NOT_EVALUATED` because the event rulebook was not available in this
-> environment. Every unknown is marked *待提供 / 待核* rather than guessed.
+> Status: **draft only. Nothing has been submitted.**
+>
+> `MLH_RULES_ELIGIBILITY = FAIL` — see §5. This is now **evaluated** against
+> MLH's published standard hackathon rules rather than left unevaluated. The
+> project as currently scoped very likely does **not** meet the prior-work
+> requirement.
+>
+> Items that still depend on the specific event (its name, dates, and whether it
+> uses the standard rules or its own) are marked *待提供 / 待核*.
+
+## 0. Eligibility risk — read this first
+
+MLH's published standard rules say:
+
+> **Rule 6.** All work on a project should be done during the period of the hackathon.
+>
+> **Rule 9.** Teams can work on an idea that they have worked on before (as long as they do not re-use code or other project materials).
+>
+> **Rule 10.** ... Working on a project before the event and open-sourcing it for the sole purpose of using the code during the event is against the spirit of the rules and is not allowed.
+>
+> **Digital Event Rule 6.** You can not submit a project that includes prior work.
+
+Source: `https://github.com/MLH/mlh-policies/blob/main/standard-hackathon-rules.md`
+(retrieved 2026-10-13). Note the document's own caveat: *"Not all MLH Member
+Event Hackathons will use these rules, as organizers can choose to use them or
+their own."*
+
+**Why this project is exposed.** The core module this demo depends on,
+`pipeline/knowledge_evidence_gate_v21.py`, was written and committed **before**
+this work began — it sits on branch `fix/gate-v2-1-controlled-remediation-20260817`
+with an August 2026 commit history — and the demo reuses it **unchanged**. It is
+prior work, and the submission reuses prior project materials.
+
+**What is genuinely new in this task** (all produced on 2026-10-13):
+
+| New | Path |
+|---|---|
+| Adapter + CLI | `pipeline/demo_gate_review.py` |
+| Tests | `tests/test_demo_gate_review.py` (27 tests) |
+| Fixtures and expectations | `examples/synthetic/**`, `examples/expected/**` |
+| Verification harness | `scripts/verify.sh` |
+| Documentation | `README.md`, `docs/**` |
+
+**Options for the owner** (the choice is not the agent's to make):
+
+1. **Confirm the event's own rules first.** If the event does not use the
+   standard rules, or explicitly permits existing projects, this risk may not
+   apply. This is the cheapest next step and requires only the rulebook.
+2. **Re-scope the submission** to only the new adapter, tests and verification
+   harness — and state plainly that it builds on a pre-existing module. This is
+   honest but the new surface is thin.
+3. **Re-implement the core during the event** so that all submitted code is
+   event work. This is the only option that fully satisfies rules 6/9/10, and it
+   means discarding the reuse — which conflicts with the original task's
+   instruction to prefer migrating existing implementation.
+4. **Do not submit to MLH.** Keep this as an engineering deliverable, which is
+   what it currently is and what it does well.
+
+The agent has not attempted to hide the reuse; it is documented prominently in
+`docs/SOURCE_MIGRATION.md` and in the commit messages.
 
 ## 1. Project URL
 
 * Repository: https://github.com/a13680970019-debug/video-teaching-knowledge-pipeline
 * **Important:** `main` has **not** been updated. The default branch still
   contains only `README.md`, `.gitignore` and four documents under `docs/`.
-  The demo described here lives on the branch
-  `feat/public-reproducible-demo-20261013`
-  (commit `040ddd1bcc9083cb378ca044bd96603e90ce8673`).
+  The demo lives on branch `feat/public-reproducible-demo-20261013`
+  (tip `c86875e`).
 * Draft PR: https://github.com/a13680970019-debug/video-teaching-knowledge-pipeline/pull/6
-  (open, draft, mergeable clean, 25 files)
+  (open, draft, mergeable clean, 30 files)
 * Pending before merge: human review, then the owner's merge decision.
 
 ## 2. Description
@@ -22,16 +78,15 @@
 
 **问题.** 把课程音频、字幕和课程资料转成"可验证的知识结构"时，真正的风险不是漏掉内容，而是**在证据不足时把不确定的数学内容当成已确认的事实**。一个数字、单位或符号一旦被错误地"修正"，错误就会沿着知识结构往下传播。
 
-**当前实现.** 本仓库此前只有文档，没有可运行代码。本次交付把已有的一条证据判定逻辑做成可公开、可复现的最小流程。
+**当前实现.** 本仓库此前只有文档，没有可运行代码。本次交付把一条证据判定逻辑做成可公开、可复现的最小流程。
 
-**工作方式.** 输入一条字幕证据记录（原始文本、绑定音频窗口的转写文本、cue 时间码、来源绑定信息、音频状态）；程序依次判定来源绑定是否成立、时间对齐是否成立、知识类型推断、类型相关的关键签名是否一致、抽取器类型是否自洽，然后给出"接受 / 隔离待审"的结论，并把结果按来源定位导出。
+**工作方式.** 输入一条字幕证据记录（原始文本、绑定音频窗口的转写文本、cue 时间码、来源绑定信息、音频状态）；程序依次判定来源绑定是否成立、时间对齐是否成立、知识类型推断、类型相关的关键签名是否一致、抽取器类型是否自洽，然后给出"接受 / 隔离待审"的结论，并按来源定位导出。
 
-**本人本次完成内容.**
-- 复用仓库既有分支中的 `pipeline/knowledge_evidence_gate_v21.py`（未改动，sha256 `993fe393…`）。
-- 新写离线适配入口 `pipeline/demo_gate_review.py`：定义并校验输入契约、映射到核心评估、导出带来源定位的审核清单与门禁汇总，失败时非零退出。
-- 新写原创合成样本、人工推导的预期输出与规则说明、27 个新测试。
-- 在仓库外的干净虚拟环境中完成复现验证（52 项测试通过），并从一个全新克隆再次复现。
-- 撰写 README、演示范围、迁移记录、验证报告与本提交草稿。
+**本次完成内容（2026-10-13 当天产出）.** 新写离线适配入口 `pipeline/demo_gate_review.py`（定义并校验输入契约、映射到核心评估、导出带来源定位的审核清单与门禁汇总、失败时非零退出）、27 个新测试、原创合成样本与人工推导的预期输出、一键验证脚本 `scripts/verify.sh`，以及全部文档；并在干净虚拟环境与全新克隆中完成复现验证。
+
+**复用说明（重要）.** 核心模块 `pipeline/knowledge_evidence_gate_v21.py` 是**本次之前就存在**的代码，本次**未改动**（blob `96c348c5…`）。详见 §0 与 `docs/SOURCE_MIGRATION.md`。
+
+**AI 使用披露.** 本次工作使用了 AI 编码智能体（WorkBuddy AI）协助编写代码与文档；任务方向由本人确定，所有内容需经本人复核后才可提交。
 
 **限制.**
 - 合成样本仅 7 条，**不能**用于声称真实数据的分类准确率。
@@ -49,7 +104,7 @@ is insufficient**. Once a number, unit or symbol is silently "corrected", the
 error propagates through the whole structure.
 
 **Current implementation.** Until now this repository contained documentation
-only, with no runnable code. This delivery turns one existing piece of evidence
+only, with no runnable code. This delivery turns one piece of evidence
 adjudication logic into a public, reproducible minimal flow.
 
 **How it works.** One evidence record goes in (original text, transcript of the
@@ -59,19 +114,20 @@ knowledge type, the type-specific critical signature, and generic extractor
 consistency. It then emits an *accepted* or *quarantined for human review*
 decision, exported with its source location.
 
-**What I did.**
-- Reused `pipeline/knowledge_evidence_gate_v21.py` from an existing branch of
-  this repository **unchanged** (sha256 `993fe393…`).
-- Wrote an offline adapter/CLI, `pipeline/demo_gate_review.py`, which defines
-  and validates the input contract, maps it onto the core assessment, exports a
-  source-located review list and gate summary, and fails closed with a non-zero
-  exit code.
-- Wrote original synthetic fixtures, hand-derived expected outputs with their
-  derivation rules, and 27 new tests.
-- Verified reproduction in a clean virtual environment outside the repository
-  (52 tests passing).
-- Wrote the README, demo scope, migration record, validation report and this
-  submission draft.
+**What was produced on 2026-10-13.** The offline adapter and CLI
+`pipeline/demo_gate_review.py` (input-contract validation, mapping onto the core
+assessment, source-located review export, fail-closed exit codes), 27 new tests,
+original synthetic fixtures with hand-derived expected outputs, the one-command
+verification script `scripts/verify.sh`, and all documentation. Reproduction was
+verified in a clean virtual environment and again from a pristine clone.
+
+**Reuse disclosure (important).** The core module
+`pipeline/knowledge_evidence_gate_v21.py` **pre-dates this work** and was reused
+**unchanged** (blob `96c348c5…`). See §0 and `docs/SOURCE_MIGRATION.md`.
+
+**AI usage disclosure.** This work used an AI coding agent (WorkBuddy AI) to
+assist with code and documentation. The human owner set the direction, and all
+content must be reviewed by the owner before submission.
 
 **Limitations.**
 - Only 7 synthetic records — this **cannot** support any accuracy claim on real
@@ -97,10 +153,11 @@ GitHub is a hosting tool, not a technology stack, so it is not listed as a tag.
 
 ## 4. Real execution evidence
 
-**Screenshot: not completed.** The environment is a headless agent shell with
-no GUI session; a real terminal screenshot could not be taken, and generated
-imagery must not be passed off as run evidence. The real captured terminal
-output is delivered as text instead:
+**Screenshot: not completed.** The environment is a headless agent shell with no
+GUI session; a real terminal screenshot could not be taken, and generated imagery
+must not be passed off as run evidence. Real captured terminal output is
+delivered as text instead. A human with a GUI session can reproduce the
+screenshot by running the command in `docs/QUICKSTART.md` §3.
 
 | Path | Purpose | Command | Evidence |
 |---|---|---|---|
@@ -113,29 +170,41 @@ output is delivered as text instead:
 | `docs/evidence/run_fresh_clone.txt` | reproduction from a pristine `git clone` | `git clone --depth 1 --branch feat/public-reproducible-demo-20261013 … && bash scripts/verify.sh` | 0 untracked files; `ALL CHECKS PASSED`, exit 0 |
 | `docs/evidence/run_guard_probe.txt` | production-root write guard | direct `guard_output_root` / `run` probe | all three forbidden roots refused; nothing created |
 
-All captures were taken from a fresh clone of the pushed branch at commit
-`c23d95b`, not from a development directory.
+All captures were taken from a fresh clone of the pushed branch, not from a
+development directory.
 
 ## 5. Rule checklist
 
-The event rulebook was not available in this environment. Nothing below is
-invented.
+Reference: **MLH Standard Hackathon Rules**,
+`https://github.com/MLH/mlh-policies/blob/main/standard-hackathon-rules.md`,
+retrieved **2026-10-13**. The document states that member events may use these
+rules or their own, so the last column separates what is settled from what still
+depends on the specific event.
 
-| Item | Value |
-|---|---|
-| Event name | *待提供* |
-| Original rule URL | *待提供* |
-| Submission time window | *待核* |
-| Are existing projects allowed? | *待核* |
-| AI usage disclosure requirement | *待核* — for transparency: this work used an AI coding agent; the human owner directed the task and must review before submission |
-| Open-source requirement | *待核* — no licence has been chosen for this repository; the owner must decide (see §7) |
-| Demo requirement | *待核* |
-| Team / eligibility requirements | *待核* |
+| Item | MLH standard rule | This project | Verdict |
+|---|---|---|---|
+| Event name | — | *待提供* | pending |
+| Original rule URL | — | Standard rules only (above); event-specific URL *待提供* | partial |
+| Submission time window | — | *待核* | pending |
+| Are existing projects allowed? | R7 idea may pre-exist; R9 may build on a prior *idea* but **may not re-use code or project materials**; Digital R6 **no prior work at all** | Core module is pre-existing and reused unchanged | **FAIL** |
+| Work must be done during the event | R6 | Adapter, tests, fixtures, docs are event-day work; the core module is not | **FAIL (partial)** |
+| Code must be public | R12, R13 | Public repository; branch pushed | PASS |
+| Must stay public after the event | R13 | Public repo, no plan to make it private | PASS |
+| AI usage disclosure | AI §2 — list the tools used in the submission | Disclosed in §2 (AI coding agent; owner reviews) | PASS (disclosed) |
+| Demo requirement | Digital R1–R3 — a ≤2-minute public video, recorded during the event, naming the hackathon at the start | **No video exists** | **NOT MET** |
+| Open-source requirement | R12 requires public code; no specific licence mandated | Public, but **no licence chosen** | partial |
+| Team / eligibility | R2 students (broadly defined, incl. grads within 12 months); R4 all members participate | *待核* | pending |
+| Not submitted elsewhere | Digital R5 | Not submitted anywhere | PASS |
+| Judging criteria | Technology, Design, Completion, Learning (equal weight) | Evidence supplied for Technology and Completion; Design is thin (CLI only); Learning not documented | partial |
+
+`MLH_RULES_ELIGIBILITY = **FAIL**` — on the prior-work requirement, and because
+no demo video exists. Both are fixable only by owner decisions (§0), not by more
+engineering.
 
 ## 6. Remote status
 
-`REMOTE_PR = PASS`. The branch `feat/public-reproducible-demo-20261013` was
-pushed to `origin` at `0a9489d…` and Draft PR #6 was opened against `main`:
+`REMOTE_PR = PASS`. Branch `feat/public-reproducible-demo-20261013` is pushed to
+`origin` at `c86875e`, and Draft PR #6 is open against `main`:
 
 https://github.com/a13680970019-debug/video-teaching-knowledge-pipeline/pull/6
 
@@ -146,20 +215,23 @@ GitHub REST API. No credential value was printed or stored in any file.
 
 `main` is **not** updated by this PR — the default branch still has no code.
 
-**CI gap:** the PR currently has **0 check runs**. A CI workflow
-(`.github/workflows/ci.yml`, Linux + Windows, Python 3.11 + 3.13) is prepared
-and its steps were replicated locally, but it cannot be pushed: any file under
-`.github/workflows/` requires the token's `workflow` scope, which this
-credential does not have (`403 Resource not accessible by integration`). The
-patch is kept at `F:\codex-workspaces\vtkp-ci-workflow.patch` for the owner to
-apply.
+**CI gap:** the PR has **0 check runs**. A CI workflow (`.github/workflows/ci.yml`,
+Linux + Windows, Python 3.11 + 3.13) is prepared and its steps were replicated
+locally, but it cannot be pushed: any path under `.github/workflows/` requires
+the token's `workflow` scope, which this credential lacks (`403 Resource not
+accessible by integration`). The patch is kept at
+`F:\codex-workspaces\vtkp-ci-workflow.patch`. `scripts/verify.sh` covers the same
+checks in the meantime.
 
 ## 7. Open decisions for the owner
 
-1. Licence: none has been selected. This repository is public but that does not
-   by itself grant an open-source licence.
-2. Whether to merge the demo into `main` after review.
-3. Whether the MLH event permits an existing project, and how AI assistance
-   must be disclosed.
-4. Whether to also publish the frozen 24-sample replay (currently excluded —
-   it needs the historical evidence archive).
+1. **Eligibility.** Read the event's own rules and decide between the four
+   options in §0. This is the blocking item.
+2. **Licence.** None selected. A public repository does not by itself grant an
+   open-source licence.
+3. **Demo video.** Digital events require a ≤2-minute public video naming the
+   hackathon, recorded during the event. None exists and the agent cannot record
+   one.
+4. **Merge.** Whether to merge the demo into `main` after review.
+5. **Frozen replay.** Whether to also publish the 24-sample replay (currently
+   excluded — it needs the historical evidence archive).
